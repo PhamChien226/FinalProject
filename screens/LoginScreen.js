@@ -39,13 +39,10 @@ let { width, height } = Dimensions.get("window");
   });
 
   componentDidMount = () => {
-    console.log("component Did mount");
   };
   callAPI = () => {
-    console.log("Call API");
   };
   onPressLogin = async () => {
-    console.log("click login");
     try {
       const {
         type,
@@ -56,8 +53,6 @@ let { width, height } = Dimensions.get("window");
       } = await Facebook.logInWithReadPermissionsAsync("524321501681175", {
         permissions: ["public_profile"]
       });
-      console.log(type);
-      console.log(token);
       if (type === "success") {
         // Get the user's name using Facebook's Graph API
         const response = await fetch(

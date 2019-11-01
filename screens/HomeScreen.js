@@ -2,18 +2,15 @@ import React, { Component } from "react";
 import { Text, StyleSheet, View, Dimensions,ScrollView } from "react-native";
 
 import * as Font from 'expo-font';
-
 import { FeedItem, Search } from "../component";
-
 import {
   ProductsListViewed,
   ProductsListInterest
 } from "../component/ListProduct";
-
 import dataCategory from "../utils/dataHome";
-
 import Slide  from "../component/Slide";
 import LogoComponent from '../component/Header/LogoComponent'
+import ListAdInterestHorizontal from "../containers/ListAdInterestHorizontal";
 
 
 let{width} = Dimensions.get('window')
@@ -51,7 +48,7 @@ constructor(props) {
            style={{ height: 120, backgroundColor: "#ffab00", borderRadius: 5 }}
          />
          {/* <ProductsListViewed/> */}
-         <ProductsListInterest/>
+         <ListAdInterestHorizontal/>
           
          {fontLoaded ? (
            <Text

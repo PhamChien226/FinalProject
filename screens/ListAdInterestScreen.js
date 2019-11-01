@@ -11,7 +11,6 @@ import {
   ActivityIndicator
 } from "react-native";
 import { AntDesign, Entypo } from "@expo/vector-icons";
-import listProductsInterest from '../utils/ListProductsInterest'
 import AdContainer from '../containers/AdContainer'
 
 let { width, heigth } = Dimensions.get("window");
@@ -24,36 +23,21 @@ export default class ListAdInterestScreen extends Component {
     super(props)
   
     this.state = {
-       list_ads_interest: [],
        isLoading:false
     };
   };
   
   componentDidMount=()=>{
-    this.callAPI()
+    this.props.onFetchRecommand();
   }
-  callAPI = async () => {
-    try {
-      const { list_ads_interest } = this.state;
-      this.setState({isLoading:true})
-      const fingerprint = await AsyncStorage.getItem('@fingerprint')
-      const response = await fetch(
-        `https://chotot-recommendersys.appspot.com/general-recommend?user_fingerprint=${fingerprint}`
-      );
-      const dataJson = await response.json();
-      this.setState({
-        isLoading:false,
-        list_ads_interest: list_ads_interest.concat(dataJson.ads),
-      });
-    } catch (error) {}
-  };
   renderFooter = () => {
-    const { isLoading} = this.state;
-      return <ActivityIndicator size="large" animating={isLoading} />;
+    // const { isLoading} = this.state;
+      return <ActivityIndicator size="large" animating={true} />;
   };
 
   render() {
-    const {list_ads_interest,isLoading} = this.state
+    // const {isLoading} = this.state
+    const {list_ads_interest,isLoading} = this.props.recommand;
 
     if(isLoading) return this.renderFooter();
     else
@@ -75,6 +59,8 @@ export default class ListAdInterestScreen extends Component {
             data={list_ads_interest}
             style={{ backgroundColor: "white", paddingBottom: 30 }}
             renderItem={({ item, index }) => {
+              console.log("ListAdInterestScreen")
+              console.log(item)
               return (
                 <AdContainer
                   item={item}
@@ -87,7 +73,7 @@ export default class ListAdInterestScreen extends Component {
                 ></AdContainer>
               );
             }}
-            keyExtractor={(item, index) => item.subject}
+            // keyExtractor={(item, index) => item.subject}
             onEndReached={this.onEndReached}
             onEndReachedThreshold={0.1}
           ></FlatList>

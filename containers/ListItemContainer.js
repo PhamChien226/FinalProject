@@ -1,5 +1,11 @@
 import {connect} from 'react-redux';
-import {clickRefresh} from '../actions/index'
+import {
+  fetchSuccessAcion,
+  fetchListItem,
+  getListAdsOnEndRead,
+  getListAdsOnRefresh,
+  postLogEventClick
+} from "../actions/index";
 
 import {ListItemScreen} from '../screens/index'
 
@@ -11,8 +17,22 @@ const mapStateToProps = (state) =>{
 
 const mapDispatchToProps = (dispatch) =>{
     return{
-        onRefresh: (id_main_category,page,id_category,id_area) =>{
-            dispatch(clickRefresh(id_main_category,page,id_category,id_area))
+        onFetchListItem: () =>{
+            dispatch(fetchListItem())
+        },
+
+        onEndRead: async () => {
+            await dispatch(getListAdsOnEndRead())
+            await dispatch(fetchListItem())
+        },
+
+        onRefresh: async () => {
+            await dispatch(getListAdsOnRefresh())
+            await dispatch(fetchListItem())
+        },
+
+        postLogEvenClick: () => {
+            dispatch(postLogEventClick())
         }
     }
 }

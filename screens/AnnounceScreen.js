@@ -24,17 +24,6 @@ export default class AnnounceScreen extends Component {
   }
 }
 
-// AnnounceScreen.navigationOptions  ={
-// title:'Announce',
-// tabBarIcon = () => {
-//     <Image
-//       source={require('../assets/announce-icon.png')}
-//       style={{height:26, width: 26, tintColor:'#0067a7'}}
-//     />
-//   }
-
-// }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,

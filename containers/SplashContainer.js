@@ -1,6 +1,6 @@
 import { AsyncStorage } from "react-native";
 import { connect } from "react-redux";
-import Splash from "../screens/Splash";
+import SplashScreen from "../screens/SplashScreen";
 
 import { getDeviceIdSuccessAction } from "../actions/index";
 
@@ -33,4 +33,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Splash);
+)(SplashScreen);

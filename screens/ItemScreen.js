@@ -21,49 +21,26 @@ import {
 
 import ProductsListInterest from "../component/ListProduct/ProductsListInterest";
 import LoginScreen from "../screens/LoginScreen";
-
 import InfoAddContainer from '../containers/InfoAddContainer'
-
 import { withNavigation } from "react-navigation"; 
+import ListAdInterestHorizontal from "../containers/ListAdInterestHorizontal";
 
-let adlist_id = null;
 let {width,height} = Dimensions.get('window')
 class ItemScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      ad_view: {},
-      isLoading: true,
       isTabDetails:false ,
       islogin:false
-
     };
-    
   }
 
-  componentDidMount = () => {
-    this.callAPI();
-  };
+  componentWillMount = async () => {
+    this.props.loadFont();
+  }
 
-  callAPI = async () => {
-    try {
-      const response = await fetch(
-        `https://chotot-recommendersys.appspot.com/infor?adlist_id=${adlist_id}`,
-        {
-          method: "GET",
-          dataType: 'json',
-          headers: {
-            // Accept: "application/json",
-            "Content-Type": "application/json"
-          },
-        }
-      );
-      const dataJson = await response.json();
-      this.setState({
-        ad_view : dataJson.infor,
-        isLoading: false
-      });
-    } catch (error) {}
+  componentDidMount = async () => {
+   await this.props.getInforDetailAd();
   };
 
   addLogin = () => {
@@ -71,8 +48,12 @@ class ItemScreen extends Component {
   };
 
   render() {
+    const { isTabDetails } = this.state;
     const {
-      ad_view: {
+      adViewCurrent,
+      isLoading,
+      fontSF,
+      adViewCurrent: {
         price_str,
         publisher,
         subject,
@@ -81,15 +62,11 @@ class ItemScreen extends Component {
         parameters,
         content,
         category_name
-      },  
-      ad_view,
-      isLoading,isTabDetails 
-    } = this.state;
-
-    adlist_id = this.props.navigation.getParam("adlist_id");
+      }
+    } = this.props.adViewState;
 
     if (isLoading)
-      return <ActivityIndicator size={"large"} animating={isLoading} />;
+      return <ActivityIndicator size={"large"} animating={true} />;
     else
       return (
         <View style={styles.container}>
@@ -101,13 +78,14 @@ class ItemScreen extends Component {
               category_name={category_name}
             />
             <InfoAddContainer
-              ad_view={ad_view}
+              ad_view={adViewCurrent}
               date={create_elapse}
               subject={subject}
               price_string={price_str}
               transparent={this}
               addLogin={this.addLogin}
-              item={ad_view}
+              item={adViewCurrent}
+              fontSF = {fontSF}
             />
             <InfoMechantComponent
               avatar={publisher.avatar}
@@ -178,7 +156,8 @@ class ItemScreen extends Component {
                     <InfoDetailAd parameters={parameters} />
                 )}
                 {/* <InfoDetailAd parameters={parameters} /> */}
-                <ProductsListInterest style={styles.productInterest} />
+                <ListAdInterestHorizontal style={styles.productInterest} />
+                {/* <ProductsListInterest style={styles.productInterest} /> */}
               </View>
             ) : (
               <View>

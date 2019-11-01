@@ -1,11 +1,20 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View,Image } from 'react-native'
-// import { Image } from 'react-native-elements'
+import { Text, StyleSheet, View,Image } from 'react-native';
 
-export default class SplashScreen extends Component {
-    // static navigationOptions = ({ navigation }) => ({
-    //     header: null
-    //   });
+ export default class SplashScreen extends Component {
+    constructor(props) {
+        super(props)
+    
+    }
+
+    componentDidMount() {
+      setTimeout(() => {
+        
+        this.props.getDeviceId()
+      }, 3000);
+    }
+    
+
     render() {
         return (
           <View style={styles.container}>
@@ -20,16 +29,14 @@ export default class SplashScreen extends Component {
 }
 
 const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        justifyContent:'center',
-        alignItems:'center',
-        backgroundColor:'#ffba00'
-    },
-    logo:{
-        width:200,
-        height:200,
-        // backgroundColor:'#ffd700',
-        // color:'#ffd700x`'
-    }
+  container:{
+    flex:1,
+    justifyContent:'center',
+    alignItems:'center',
+    backgroundColor:'#ffba00'
+},
+logo:{
+    width:200,
+    height:200,
+}
 })

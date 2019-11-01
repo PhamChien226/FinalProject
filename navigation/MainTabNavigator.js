@@ -23,6 +23,9 @@
 import CompareScreenContainer from "../containers/CompareScreenContainer";
 import ListItemContainer from "../containers/ListItemContainer";
 import DetailCompareContainer from "../containers/DetailCompareContainer";
+import ModalProvincialContainer from "../containers/ModalProvincialContainer";
+import ListAdInterestContainer from "../containers/ListAdInterestContainer";
+import AdViewContainer from "../containers/AdViewContainer";
 
   import { AntDesign,Entypo } from "@expo/vector-icons";
 
@@ -31,15 +34,15 @@ import DetailCompareContainer from "../containers/DetailCompareContainer";
         Home: HomeScreen,
         ListItem: ListItemContainer,
         // ListItem: ListItemScreen,
-        ModalProvincial :ModalProvincialScreen,
-        Item: ItemScreen,
+        ModalProvincial :ModalProvincialContainer,
+        Item: AdViewContainer,
         Login: LoginScreen,
         Splash: SplashScreen,
         DetailCompare: DetailCompareContainer,
         // Compare: CompareScreen,
         Compare: CompareScreenContainer,
         Wellcome: WelcomeStackScreen,
-        Interest:ListAdInterestScreen
+        Interest:ListAdInterestContainer
       },
     
       {

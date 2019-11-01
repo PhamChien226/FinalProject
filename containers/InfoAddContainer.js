@@ -5,7 +5,8 @@ import InfoAddComponent from '../component/AddViewComponent/InfoAddComponent'
 
 const mapStateToProps = (state) =>{
     return {
-        compareState: state.compareState
+        compareState: state.compareState,
+        adViewState: state.adViewState
     }
 }
 const mapDispatchToProps = (dispatch) => {

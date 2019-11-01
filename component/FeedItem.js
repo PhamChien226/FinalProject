@@ -32,6 +32,7 @@ class FeedItem extends Component {
             this.props.navigation.navigate("ListItem", {
               id_main_category: item.id_main_category
             });
+            
           }
         }}
         activeOpacity={0.8}

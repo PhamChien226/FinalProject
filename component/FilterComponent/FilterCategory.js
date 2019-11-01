@@ -3,6 +3,7 @@ import { Text, StyleSheet, View ,FlatList} from 'react-native'
 // import MiniAddView from '../AddView/MiniAddView'
 import categoryElecDev from '../../utils/categoryElecDev';
 import CategoryItem from './CategoryItem';
+import FilterCategoryContainer from '../../containers/FilterCategoryContainer';
 
 export default class FilterCategory extends Component {
     constructor(props) {
@@ -28,13 +29,11 @@ export default class FilterCategory extends Component {
                     horizontal={true}
                     renderItem={({item,index}) => {
                         return (
-                          <CategoryItem
+                          <FilterCategoryContainer
                             item={item}
                             index={index}
-                            parentFlatlist={this}
-                            refreshCategory={this.props.refreshCategory}
                             key={item.name}
-                          ></CategoryItem>
+                          ></FilterCategoryContainer>
                         );
                     }}
                     keyExtractor = {(item,index) => item.name}

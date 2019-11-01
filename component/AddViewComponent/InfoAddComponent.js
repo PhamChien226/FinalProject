@@ -10,6 +10,7 @@ import {
 import { EvilIcons } from "@expo/vector-icons";
 import {withNavigation} from 'react-navigation'
 
+let fontSF = null;
 let { width } = Dimensions.get("window");
 class InfoAddComponent extends Component {
   onPressLogin=()=>{
@@ -37,6 +38,7 @@ class InfoAddComponent extends Component {
     }
   render() {
     const { date, subject, price_string } = this.props;
+    fontSF= this.props.adViewState;
     return (
       <View style={styles.container}>
           <Text style={styles.textTitle}>{subject}</Text>
@@ -86,17 +88,20 @@ const styles = StyleSheet.create({
   },
   textTitle: {
     fontSize: 19,
-    fontWeight: "bold"
+    fontWeight: "bold",
+    fontFamily: fontSF
   },
   textPrice: {
     fontSize: 17,
     color: "brown",
     fontWeight: "500",
     paddingVertical:4,
+    fontFamily: fontSF
   },
   textExtra: {
     color: "#c4c4c4",
-    fontWeight: "300"
+    fontWeight: "300",
+    fontFamily: fontSF
   },
   // buttonSaveAd: {
   //   position:"absolute",

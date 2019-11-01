@@ -5,8 +5,6 @@ import {withNavigation} from 'react-navigation'
 let{width,height} = Dimensions.get('window');
 export default class MiniAddViewCompare extends Component {
   onPress = () => {
-    // const {item:{title}} = this.props;
-    // console.log(onpress);
     alert(`You onPrres`)
     
     

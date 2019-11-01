@@ -4,15 +4,14 @@ import {withNavigation} from 'react-navigation';
 
 class CategoryItem extends Component {
     render() {
+        const {id_mobile_category} = this.props.item;
         return (
             <View style={styles.container}>
                 <TouchableOpacity
                 style={styles.button}
                 onPress={()=>{
-                    // this.props.navigation.navigate('ListItem',{
-                    //     cg:this.props.item.id_mobile_category
-                    // })
-                    this.props.refreshCategory(this.props.item.id_mobile_category,null)
+                    this.props.onFilterCategory(id_mobile_category);
+                    this.props.postLogEventClick();
                 }}
                 >
                 {this.props.item.icon}
@@ -43,7 +42,5 @@ const styles = StyleSheet.create({
         height:70,
         justifyContent:'center',
         alignItems:'center',
-        // alignSelf:"center",
-        // backgroundColor:"lightblue"
     }
 })

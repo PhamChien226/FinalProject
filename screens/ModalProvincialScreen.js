@@ -42,12 +42,8 @@ class ModalProvincialScreen extends Component {
   render() {
       const {value} = this.state; 
       const data = this.props.navigation.getParam('data')
-      const id_main_category = this.props.navigation.getParam('id_main_category')
-      const id_category = this.props.navigation.getParam('id_category')
-      const transparent = this.props.navigation.getParam('transparent')
     return (
       <View style={styles.container}>
-      {/* // <View style={styles.container} ref={"myModal"}> */}
       <TouchableOpacity style={styles.header} onPress={()=>{
         this.props.navigation.navigate('ListItem')
       }}>
@@ -62,12 +58,10 @@ class ModalProvincialScreen extends Component {
               borderColor: "#c4c4c4",
               height: 50,
             }}
-            onPress={()=>{
-              this.setState({ value: item.name });
-              transparent.refreshCategory(id_category,item.id_area)
-              this.props.navigation.navigate('ListItem',{
-                id_area: item.id_area,
-                id_main_category:id_main_category
+            onPress={async ()=>{
+              await this.setState({ value: item.name });
+              await this.props.onClickFilterCategory(item.id_area);
+              await this.props.navigation.navigate('ListItem',{
               })
             }}
             activeOpacity={0.9}
@@ -76,10 +70,9 @@ class ModalProvincialScreen extends Component {
               <Text>{item.name}</Text>
               <TouchableOpacity
                 style={styles.circle}
-                onPress={() => {
+                onPress={async () => {
                   this.setState({ value: item.name });
-                  // this.onSelected(id_category)
-                  transparent.refreshCategory(id_category)
+                 await this.props.onClickFilterCategory(item.id_area);
                 }}
               >
                 {value === item.name && <View style={styles.checkedCircle} />}

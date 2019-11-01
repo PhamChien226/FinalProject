@@ -29,7 +29,6 @@ export default class CompareScreen extends Component {
   render() {
     const { isSelectRecommand } = this.state;
     const { list_ad_interest } = this.props.adState;
-    console.log("List_id_ad: " + list_ad_interest )
     return (
       <View style={styles.container}>
         <View style={styles.header}>

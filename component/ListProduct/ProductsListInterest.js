@@ -4,83 +4,68 @@ import MiniAddView from '../AddView/MiniAddView'
 import ListProductsInterest from '../../utils/ListProductsInterest'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import {withNavigation} from 'react-navigation'
+import MiniAdViewContainer from '../../containers/MiniAdViewContainer'
 
 class ProductsListInterest extends Component {
-    constructor(props) {
-      super(props)
-    
-      this.state = {
-        ListProducts: ListProductsInterest,
-        list_ads_interest: [],
-        isLoading: false
-      };
+  constructor(props) {
+    super(props);
+
+    this.state = {
     };
+  }
 
-    componentDidMount=()=>{
-        this.callAPI()
-      }
-    callAPI = async () => {
-        try {
-          const { list_ads_interest } = this.state;
-          this.setState({isLoading:true})
-          const fingerprint = await AsyncStorage.getItem('@fingerprint')
-          const response = await fetch(
-            `https://chotot-recommendersys.appspot.com/general-recommend?user_fingerprint=${fingerprint}`
-          );
-          const dataJson = await response.json();
-        //   console.log("Call API Interest") 
-        //   console.log(dataJson.ads)
-          this.setState({
-            isLoading:false,
-            list_ads_interest: list_ads_interest.concat(dataJson.ads),
-          });
-        } catch (error) {}
-      };
-      
-      renderFooter = () => {
-        const { isLoading} = this.state;
-          return <ActivityIndicator size="large" animating={isLoading} />;
-      };
+  componentDidMount = async () => {
+    await this.props.callAPIGetAdRecommand();
+  };
 
-    renderItem =(item) => {
-        console.log(item)
-    }
-    
-    render() {
-        const {list_ads_interest,isLoading} = this.state
-    
-        if(isLoading) return this.renderFooter();
-        else
-        return (
-            <View style={styles.container}> 
-            <View style={{flexDirection:'row',justifyContent:"space-between",alignItems:"center"}}>
-                <Text style={{fontWeight:'800',paddingTop:5}}>Có thể bạn quan tâm </Text>
-                <TouchableOpacity 
-                    onPress={()=>{
-                        // alert('You Onpress')
-                        this.props.navigation.navigate('Interest')
-                    }}
-                >
-                    <Text style={styles.textExtra}>Xem thêm</Text>
-                </TouchableOpacity>
-            </View>
-                <FlatList 
-                    data={list_ads_interest}
-                    horizontal={true}
-                    renderItem={({item,index}) => {
-                        return (
-                            <MiniAddView item={item} index ={index} parentFlatlist={this}>
+  renderFooter = () => {
+    return <ActivityIndicator size="large" animating={true} />;
+  };
 
-                            </MiniAddView>
-                        )
-                    }}
-                    keyExtractor = {(item,index) => item.title}
-                    showsHorizontalScrollIndicator={false}
-                    // style={{}}
-                />
-            </View>
-        )
-    }
+  render() {
+    const { list_ads_interest, isLoading } = this.props.recommand;
+
+    if (isLoading) return this.renderFooter();
+    else
+      return (
+        <View style={styles.container}>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center"
+            }}
+          >
+            <Text style={{ fontWeight: "800", paddingTop: 5 }}>
+              Có thể bạn quan tâm{" "}
+            </Text>
+            <TouchableOpacity
+              onPress={() => {
+                // alert('You Onpress')
+                this.props.navigation.navigate("Interest");
+              }}
+            >
+              <Text style={styles.textExtra}>Xem thêm</Text>
+            </TouchableOpacity>
+          </View>
+          <FlatList
+            data={list_ads_interest}
+            horizontal={true}
+            renderItem={({ item, index }) => {
+              return (
+                <MiniAdViewContainer
+                  item={item}
+                  index={index}
+                  parentFlatlist={this}
+                ></MiniAdViewContainer>
+              );
+            }}
+            keyExtractor = {(item,index) => item.adlist_id}
+            showsHorizontalScrollIndicator={false}
+          />
+        </View>
+      );
+  }
 }
 export default withNavigation(ProductsListInterest);
 

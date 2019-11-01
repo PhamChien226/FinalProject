@@ -3,13 +3,12 @@ import { Text, StyleSheet, View, TouchableOpacity, Image } from "react-native";
 import {withNavigation} from 'react-navigation'
 
 class MiniAddView extends Component {
-  onPress = () => {
-    const {item:{title,adlist_id}} = this.props;
-    // alert(`You onPrres : ${subject}`)
-    this.props.navigation.navigate("Item", {
+  onPress = async () => {
+    const {item:{title,adlist_id},item} = this.props;
+    await this.props.onClickAdEvent(item);
+    await this.props.navigation.navigate("Item", {
       adlist_id: adlist_id
     });
-    
     
   };
   render() {

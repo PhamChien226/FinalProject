@@ -24,50 +24,10 @@ class IconKindBuyer extends Component {
 
 class ItemProduct extends Component {
 
-  pushEventClick = async () => {
-    const { id_category,id_main_category, page, id_area } = this.props.adState;
-    const { item:{adlist_id},index } = this.props;
-
-    const user_fingerprint = await AsyncStorage.getItem('@fingerprint')
-    const respond = await fetch(
-      "https://chotot-recommendersys.appspot.com/logging/create",
-      {
-        method: "POST",
-        headers: {
-          // Accept: "application/json",
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            "adlist_id": adlist_id,
-            "ad_placement": null,
-            "ad_position": index,
-            "ad_source": "stickyad",
-            "user_fingerprint": user_fingerprint,
-            "event_client_time": "2019-09-26T22:30:12",
-            "event_server_time": "2019-09-26T22:31:00",
-            "page_name": "ADLISTING",
-            "page_number": page,
-            "page_device": "HANDY",
-            "filter_brand": null,
-            "filter_main_category_id": id_main_category,
-            "filter_category_id": id_category, 
-            "filter_keyword": null,
-            "filter_price": null,
-            "filter_region_id": 13000,
-            "filter_area_id": id_area,
-            "filter_adtype": "sell"
-        })
-      }
-    );
-    console.log("Post Log ItemProduct ")
-    console.log(respond);
-  };
-
   render() {
     const {
       item,
       item: {
-        
         area,
         price_str,
         publisher,
@@ -78,6 +38,8 @@ class ItemProduct extends Component {
       },nameTransparent 
     } = this.props;
 
+    const {adlist_id_current} = this.props.adState;
+
     return (
       <View 
       style={styles.container}
@@ -87,9 +49,9 @@ class ItemProduct extends Component {
           onPress={async() => {
             if(nameTransparent === "ListItem")
             {
-              this.props.onClickAdd(item)
-              this.pushEventClick()
-              this.props.navigation.navigate("Item", {
+              await  this.props.onClickAdd(item)
+              await this.props.onPostLogEvent();
+              await this.props.navigation.navigate("Item", {
                 adlist_id: adlist_id
               });
             }

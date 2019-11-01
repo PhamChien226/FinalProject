@@ -1,38 +1,29 @@
 import React, { Component } from 'react'
-// import AppRoot from './AppRoot';
 import AppRootContainer from './containers/AppRootContainer' 
 import {Provider} from 'react-redux';
 import { combineReducers , createStore,applyMiddleware} from 'redux'
 import { allreducers } from './reducers/index';
-
-// import  CounterContainer from "./containers/CounterContainer";
-
-// import allReducers from "./reducers"; 
 //ReduxSaga
-// import createSagaMiddleware from 'redux-saga';
+import createSagaMiddleware from 'redux-saga';
 //Middleware
 
-// const sagaMiddleware = createSagaMiddleware();
-// import rootSaga from './sagas/rootSaga';
+const sagaMiddleware = createSagaMiddleware();
+import rootSaga from './sagas/rootSaga';
 
 
 
-// const reducers = combineReducers({
-//   authState: authStateReducer
-// })
-  // let store = createStore(allReducers,applyMiddleware(sagaMiddleware))
-let store = createStore(allreducers)
+  let store = createStore(allreducers,applyMiddleware(sagaMiddleware))
+// let store = createStore(allreducers)
 export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        {/* <CounterContainer /> */}
         <AppRootContainer/>
       </Provider>
     );
   }
 }
-// sagaMiddleware.run(rootSaga)
+sagaMiddleware.run(rootSaga)  
 
 
 
