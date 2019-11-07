@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View,Image,TouchableOpacity,Dimensions } from 'react-native'
-import {Avatar, Badge} from 'react-native-elements';
+import { StyleSheet, View,Image,Dimensions } from 'react-native';
+import Text from '../../components/CustomText';
+import {Avatar} from 'react-native-elements';
 import {AntDesign,MaterialCommunityIcons} from '@expo/vector-icons'
 
 const Status = ()=>{

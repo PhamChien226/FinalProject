@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {
-  Text,
   StyleSheet,
   View,
   Dimensions,
@@ -8,6 +7,7 @@ import {
   Image,
   FlatList
 } from "react-native";
+import Text from '../components/CustomText';
 import { AntDesign } from "@expo/vector-icons";
 
 import AdContainer from "../containers/AdContainer";

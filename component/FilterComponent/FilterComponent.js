@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Text, StyleSheet, View, TouchableOpacity } from "react-native";
+import { StyleSheet, View, TouchableOpacity } from "react-native";
+import Text from '../../components/CustomText';
 import {AntDesign} from '@expo/vector-icons';
 import {withNavigation} from 'react-navigation';
 import DatalistDistric from '../../utils/DatalistDistric'

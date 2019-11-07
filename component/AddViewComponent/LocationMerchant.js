@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View,Dimensions } from 'react-native'
+import { StyleSheet, View,Dimensions } from 'react-native';
+import Text from '../../components/CustomText';
 import {EvilIcons} from '@expo/vector-icons'
 
 let{width, height} = Dimensions.get('window')

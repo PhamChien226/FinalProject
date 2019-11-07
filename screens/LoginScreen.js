@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {
-  Text,
   StyleSheet,
   View,
   KeyboardAvoidingView,
@@ -13,6 +12,7 @@ import {
   Dimensions,
   Alert
 } from "react-native";
+import Text from '../components/CustomText';
 // import { SafeAreaView } from 'react-navigation';
 import { AsyncStorage } from "react-native";
 import { SimpleLineIcons, Ionicons } from "@expo/vector-icons";

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {
-  Text,
   StyleSheet,
   View,
   TouchableOpacity,
@@ -10,6 +9,7 @@ import {
   AsyncStorage,
   ActivityIndicator
 } from "react-native";
+import Text from '../components/CustomText';
 import { AntDesign, Entypo } from "@expo/vector-icons";
 import AdContainer from '../containers/AdContainer'
 

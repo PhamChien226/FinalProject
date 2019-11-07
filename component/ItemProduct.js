@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {
-  Text,
   StyleSheet,
   View,
   TouchableHighlight,
@@ -9,6 +8,7 @@ import {
   Dimensions,
   AsyncStorage
 } from "react-native";
+import Text from '../components/CustomText';
 import { withNavigation } from "react-navigation";
 import { Entypo, MaterialIcons, FontAwesome } from "@expo/vector-icons";
 

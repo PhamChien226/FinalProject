@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Text, StyleSheet, View, TouchableOpacity, Image } from "react-native";
-import {withNavigation} from 'react-navigation'
+import {StyleSheet, View, TouchableOpacity, Image } from "react-native";
+import {withNavigation} from 'react-navigation';
+import Text from '../../components/CustomText';
 
 class MiniAddView extends Component {
   onPress = async () => {

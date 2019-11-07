@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Text, StyleSheet, View, Image, Dimensions,TouchableOpacity } from "react-native";
+import {  StyleSheet, View, Image, Dimensions,TouchableOpacity } from "react-native";
+import Text from '../components/CustomText';
 import { withNavigation } from "react-navigation";
 import { LinearGradient } from "expo-linear-gradient";
 

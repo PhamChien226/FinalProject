@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import * as Font from 'expo-font';
 import SplashContainer from '../containers/SplashContainer';
 import WelcomeStackScreen from '../screens/WelcomeStackScreen';
 import AppContainer from '../navigation/MainTabNavigator'
@@ -9,7 +10,10 @@ export default class AppRoot extends Component {
     
   }
 
-  componentDidMount() {
+  async componentDidMount() {
+    await Font.loadAsync({
+      'sf-font-pro': require('../assets/fonts/FontsFree-Net-SFProDisplay-Regular.ttf'),
+    });
     this.props.checkLogin();  
     this.props.checkIsUsed();  
   }

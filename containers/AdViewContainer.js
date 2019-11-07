@@ -19,6 +19,9 @@ const mapDispatchToProps = dispatch => {
      const SF_FONT_PRO = await Font.loadAsync({
         'sf-font-pro': require('../assets/fonts/FontsFree-Net-SFProDisplay-Regular.ttf'),
       });
+      console.log("Load font");
+      console.log(SF_FONT_PRO);
+      console.log('sf-font-pro');
       dispatch(getFontFamily(SF_FONT_PRO));
     }
   };

@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View ,FlatList,AsyncStorage,ActivityIndicator} from 'react-native'
-import MiniAddView from '../AddView/MiniAddView'
-import ListProductsInterest from '../../utils/ListProductsInterest'
-import { TouchableOpacity } from 'react-native-gesture-handler'
+import { StyleSheet, View ,FlatList,AsyncStorage,ActivityIndicator,TouchableOpacity} from 'react-native'
+import Text from '../../components/CustomText';
 import {withNavigation} from 'react-navigation'
 import MiniAdViewContainer from '../../containers/MiniAdViewContainer'
 

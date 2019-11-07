@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View,Image } from 'react-native'
+import { StyleSheet, View,Image } from 'react-native';
+import Text from '../components/CustomText';
 import { Search } from "../component";
 import {SimpleLineIcons} from '@expo/vector-icons'
 

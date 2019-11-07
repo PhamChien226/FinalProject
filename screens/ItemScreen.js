@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {
-  Text,
   StyleSheet,
   View,
   ActivityIndicator,
@@ -8,6 +7,7 @@ import {
   ScrollView,
   Dimensions,FlatList,Image
 } from "react-native";
+import Text from '../components/CustomText';
 
 import {
   ContactComponent,
@@ -19,11 +19,11 @@ import {
   InfoDetailAdLapTop
 } from "../component/AddViewComponent";
 
-import ProductsListInterest from "../component/ListProduct/ProductsListInterest";
 import LoginScreen from "../screens/LoginScreen";
 import InfoAddContainer from '../containers/InfoAddContainer'
 import { withNavigation } from "react-navigation"; 
 import ListAdInterestHorizontal from "../containers/ListAdInterestHorizontal";
+
 
 let {width,height} = Dimensions.get('window')
 class ItemScreen extends Component {

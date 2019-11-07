@@ -3,10 +3,6 @@ import { Text, StyleSheet, View, Dimensions,ScrollView } from "react-native";
 
 import * as Font from 'expo-font';
 import { FeedItem, Search } from "../component";
-import {
-  ProductsListViewed,
-  ProductsListInterest
-} from "../component/ListProduct";
 import dataCategory from "../utils/dataHome";
 import Slide  from "../component/Slide";
 import LogoComponent from '../component/Header/LogoComponent'
@@ -24,9 +20,9 @@ constructor(props) {
 };
 
   async  componentWillMount() {
-    await Font.loadAsync({
-      'sf-font-pro': require('../assets/fonts/FontsFree-Net-SFProDisplay-Regular.ttf'),
-    });
+    // await Font.loadAsync({
+    //   'sf-font-pro': require('../assets/fonts/FontsFree-Net-SFProDisplay-Regular.ttf'),
+    // });
     this.setState({fontLoaded :true})
   }
   updateSearch = text => {

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {
-  Text,
   StyleSheet,
   View,
   TouchableOpacity,
@@ -17,7 +16,6 @@ import FilterComponent from "../component/FilterComponent/FilterComponent";
 import FilterCategory from "../component/FilterComponent/FilterCategory";
 
 import AdContainer from "../containers/AdContainer";
-import dataItem from "../utils/dataItem";
 
 let { width, height } = Dimensions.get("window");
 export default class ListItemScreen extends Component {

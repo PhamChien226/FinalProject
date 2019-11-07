@@ -41,10 +41,11 @@ export default class Search extends Component {
           inputContainerStyle={{
             backgroundColor: "white",
             width: width,
-            borderRadius: 10,
-            alignSelf:'center'
+            borderRadius: 10, 
+            alignSelf:'center',
+            
           }}
-          inputStyle={{ color: "black" }}
+          inputStyle={{ color: "black",fontFamily: 'sf-font-pro', }}
         />
       </View>
     );

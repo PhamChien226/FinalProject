@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {
-  Text,
   StyleSheet,
   View,
   Dimensions,
@@ -8,6 +7,7 @@ import {
   Image,
   ScrollView
 } from "react-native";
+import Text from '../components/CustomText';
 import Modal from "react-native-modalbox";
 
 import { SearchBar } from "react-native-elements";

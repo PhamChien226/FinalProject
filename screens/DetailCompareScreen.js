@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Text, StyleSheet, View, Dimensions, Image } from "react-native";
+import { StyleSheet, View, Dimensions, Image } from "react-native";
+import Text from '../components/CustomText';
 import { AntDesign, Entypo } from "@expo/vector-icons";
 import { Avatar } from "react-native-elements";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";

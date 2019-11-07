@@ -1,26 +1,17 @@
 import React, { Component } from 'react'
 import {
-  Text,
   StyleSheet,
   View,
-  TextInput,
-  TouchableHighlight,
-  Platform,
   Dimensions,
-  Alert,
-  Image,
   ScrollView,
   TouchableOpacity
 } from "react-native";
-// import Modal from 'react-native-modalbox';
-// import Button from 'react-native-button';
-// import {ListItem, CheckBox} from 'react-native-elements'
+import Text from '../components/CustomText';
+
 import {withNavigation} from 'react-navigation'
 import {AntDesign} from '@expo/vector-icons'
 
-import DatalistDistric from '../utils/DatalistDistric'
-
-let{width,height} = Dimensions.get('window');
+let{width} = Dimensions.get('window');
 
 class ModalProvincialScreen extends Component {
     constructor(props) {

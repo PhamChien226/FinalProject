@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import {
-  Text,
   StyleSheet,
   View,
   TouchableOpacity,
   Dimensions,
   Alert,Image
 } from "react-native";
+import Text from '../../components/CustomText';
 import { EvilIcons } from "@expo/vector-icons";
 import {withNavigation} from 'react-navigation'
 
@@ -38,7 +38,9 @@ class InfoAddComponent extends Component {
     }
   render() {
     const { date, subject, price_string } = this.props;
-    fontSF= this.props.adViewState;
+    fontSF = this.props.adViewState;
+    console.log("Info ad Component")
+    console.log(fontSF);
     return (
       <View style={styles.container}>
           <Text style={styles.textTitle}>{subject}</Text>

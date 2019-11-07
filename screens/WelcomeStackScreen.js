@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Text, StyleSheet, View, ScrollView } from "react-native";
+import { StyleSheet, ScrollView } from "react-native";
 // import { WelcomeScreen, LocationScreen } from "./index";
 import WelcomeScreen from './WelcomeScreen'
-import LocationScreenContainer from '../containers/LocationScreenContainer'
+import LocationScreenContainer from '../containers/LocationScreenContainer';
 
 export default class WelcomeStackScreen extends Component {
   render() {

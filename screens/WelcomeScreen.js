@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Text, StyleSheet, View, Dimensions, Image } from "react-native";
+import { StyleSheet, View, Dimensions, Image } from "react-native";
+import Text from '../components/CustomText';
 
 let { width, height } = Dimensions.get("window");
 export default class WelcomeScreen extends Component {

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Text, StyleSheet, View, TouchableOpacity, Image,Dimensions } from "react-native";
-import {withNavigation} from 'react-navigation'
+import { StyleSheet, View, TouchableOpacity, Image,Dimensions } from "react-native";
+import {withNavigation} from 'react-navigation';
+import Text from '../../components/CustomText';
 
 let{width,height} = Dimensions.get('window');
 export default class MiniAddViewCompare extends Component {
