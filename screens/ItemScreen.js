@@ -91,7 +91,7 @@ class ItemScreen extends Component {
               avatar={publisher.avatar}
               account_name={publisher.name}
             />
-            <View style={styles.tabContenAd}>
+             <View style={styles.tabContenAd}>
               <View
                 style={{
                   width: width * 0.5,
@@ -112,7 +112,8 @@ class ItemScreen extends Component {
                       width: "100%",
                       paddingBottom: 5,
                       color: isTabDetails ? "black" : "#FFBA00",
-                      fontWeight: "bold"
+                      fontWeight: isTabDetails ? "400" : "bold"
+                      // fontWeight: "bold"
                     }}
                   >
                     Rao Bán
@@ -139,7 +140,7 @@ class ItemScreen extends Component {
                       width: "100%",
                       paddingBottom: 5,
                       color: isTabDetails ? "#FFBA00" : "black",
-                      fontWeight: "bold"
+                      fontWeight: isTabDetails ? "bold" : "400"
                     }}
                   >
                     Thông Tin Chi Tiết
@@ -155,9 +156,7 @@ class ItemScreen extends Component {
                   ) : (
                     <InfoDetailAd parameters={parameters} />
                 )}
-                {/* <InfoDetailAd parameters={parameters} /> */}
                 <ListAdInterestHorizontal style={styles.productInterest} />
-                {/* <ProductsListInterest style={styles.productInterest} /> */}
               </View>
             ) : (
               <View>
@@ -177,7 +176,7 @@ class ItemScreen extends Component {
                   </Text>
                 </View>
               </View>
-            )}
+            )}                  
           </ScrollView>
           <ContactComponent publisher={publisher} />
           <LoginScreen ref={"loginModal"} transparent={this} />
@@ -192,10 +191,11 @@ export default withNavigation(ItemScreen);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingBottom: 70
+    
   },
   viewContainer: {
-    backgroundColor: "white"
+    backgroundColor: "white",
+    // marginBottom:50
   },
   headerContainer: {
     position: "absolute",
@@ -261,54 +261,8 @@ const styles = StyleSheet.create({
     width:40,
   },
   textVerified:{
-  flex:0.75
+  flex:0.75,
+  paddingBottom:50
   },
-  buttonContactWrapper: {
-    position: "absolute",
-    bottom: 0,
-    left: 0,
-    right: 0,
-    flexDirection: "row",
-    height: 60
-  },
-  buttonContact: {
-    flex: 33.33,
-    backgroundColor: "mediumseagreen",
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  // infoConfigWrapper: {
-  //   padding: 10
-  // },
-  // AConfig: {
-  //   flexDirection: "row",
-  //   alignItems: "center",
-  //   padding: 10
-  // },
-  productInterest: {},
-  mobile_icon: {
-    width: 22,
-    height: 22,
-    paddingRight: 10
-  },AConfig_1: {
-    flexDirection: "row",
-    alignItems: "center",
-    padding: 10,
-    backgroundColor: "#F6F8F8",
-    height: 39
-  },
-  AConfig_2: {
-    flexDirection: "row",
-    alignItems: "center",
-    padding: 10,
-    backgroundColor: "#ffffff",
-    height: 39
-  },
-  titleConfig: {
-    flex: 0.6
-  },
-  contentConfig: {
-    flex: 0.4
-  }
 });
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { StyleSheet, View,Image,Dimensions } from 'react-native';
 import Text from '../../components/CustomText';
 import {Avatar} from 'react-native-elements';
-import {AntDesign,MaterialCommunityIcons} from '@expo/vector-icons'
+import {AntDesign,MaterialCommunityIcons,MaterialIcons} from '@expo/vector-icons'
 
 const Status = ()=>{
     return (
@@ -34,16 +34,11 @@ export default class InfoMechantComponent extends Component {
                   }}
                   size="medium"
                 />
-
-                {/* <Badge 
-                  status="success"
-                  containerStyle={{ position: "absolute", top: 4, right: 4 }}
-                /> */}
               </View>
               <View style={styles.infoPersonal}>
-                <View style={{ flexDirection: "row" }}>
+                <View style={{ flexDirection: "row", alignItems: "center" }}>
                   <Text style={styles.nameMerchant}>{account_name}</Text>
-                  <AntDesign name="home" size={23} color="#FFBA00" />
+                  <MaterialIcons name="store" size={19} color="#ffab00" />
                 </View>
                 <Text style={styles.textAddress}>
                   Phường 14, Quận Gò Vấp, Tp.Hồ Chí Minh
@@ -53,12 +48,14 @@ export default class InfoMechantComponent extends Component {
                     name="star"
                     size={12}
                     color="#F7C942"
-                    style={{paddingBottom:15,paddingLeft:10}}
+                    style={{ paddingTop: 3 }}
                   />
-                  <Text style={{ fontSize: 12,paddingRight:12 }}>4.2</Text>
-                <Text style={styles.textExtra}>0.8km</Text>
+                  <Text style={{ fontSize: 12, paddingRight: 12 }}>4.2</Text>
+                  <View style={styles.distanWrapper}>
+                    <View style={styles.dot}></View>
+                    <Text style={styles.textExtra}>0.8km</Text>
+                  </View>
                 </View>
-
               </View>
             </View>
           </View>
@@ -88,9 +85,9 @@ const styles = StyleSheet.create({
   },
   nameMerchant: {
     fontSize:16,
-    fontWeight: "500",
-    paddingTop: 2,
-    paddingRight:15
+    fontWeight: "400",
+    // paddingTop: 2,
+    paddingRight:10
   },
   infoMerchantWrapper:{
     height:50,
@@ -109,7 +106,24 @@ const styles = StyleSheet.create({
     fontSize:12,
     color:'#727C8E'
   },
+  distanWrapper:{
+    flexDirection:"row",
+    justifyContent:'flex-end',
+    height:13,
+    alignItems:'center' 
+  },
+  dot:{
+    height:4,  
+    width:4,
+    borderRadius:2,
+    backgroundColor:"#2D2D2D",
+    alignSelf:'flex-end',
+    marginRight:5,
+    
+  },
   textExtra:{
-    fontSize:12
+    fontSize:12,
+    paddingTop:2
+    // textAlign:''
   }
 });

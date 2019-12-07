@@ -26,20 +26,19 @@ import DetailCompareContainer from "../containers/DetailCompareContainer";
 import ModalProvincialContainer from "../containers/ModalProvincialContainer";
 import ListAdInterestContainer from "../containers/ListAdInterestContainer";
 import AdViewContainer from "../containers/AdViewContainer";
+import HomeContainer from "../containers/HomeContainer";
 
-  import { AntDesign,Entypo } from "@expo/vector-icons";
+  import { AntDesign,Entypo,MaterialCommunityIcons,Ionicons } from "@expo/vector-icons";
 
   const HomeStack = createStackNavigator(
       {
-        Home: HomeScreen,
+        Home: HomeContainer,
         ListItem: ListItemContainer,
-        // ListItem: ListItemScreen,
         ModalProvincial :ModalProvincialContainer,
         Item: AdViewContainer,
         Login: LoginScreen,
         Splash: SplashScreen,
         DetailCompare: DetailCompareContainer,
-        // Compare: CompareScreen,
         Compare: CompareScreenContainer,
         Wellcome: WelcomeStackScreen,
         Interest:ListAdInterestContainer
@@ -56,13 +55,12 @@ import AdViewContainer from "../containers/AdViewContainer";
       let tabBarVisible = true;
       let tabBarLabel="Đi chợ";
       let tabBarIcon =({tintColor})=>{
-        return <AntDesign name ="home" color={tintColor} size={26}/>
+        return <Ionicons name ="md-home" color={tintColor} size={26}/>
       }
 
       let routeName = navigation.state.routes[navigation.state.index].routeName
 
-      if ( routeName == 'Item' ) {
-      // if ( routeName == 'Wellcome' ) {
+      if ( routeName == 'Item' || routeName == 'ListItem') {
           tabBarVisible = false
       }
 
@@ -87,8 +85,8 @@ import AdViewContainer from "../containers/AdViewContainer";
       {
         Home: HomeStack,
         Message: MessageStack,
-        Announce: AnnounceScreen,
         History: HistoryScreen,
+        Announce: AnnounceScreen,
         UserInfo: UserInfoScreen
       },
       {

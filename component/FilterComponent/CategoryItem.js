@@ -6,41 +6,44 @@ class CategoryItem extends Component {
     render() {
         const {id_mobile_category} = this.props.item;
         return (
-            <View style={styles.container}>
-                <TouchableOpacity
-                style={styles.button}
-                onPress={()=>{
-                    this.props.onFilterCategory(id_mobile_category);
-                    this.props.postLogEventClick();
-                }}
-                >
-                {this.props.item.icon}
-                </TouchableOpacity>
+          <TouchableOpacity  
+            style={styles.button}
+            onPress={() => {
+              this.props.onFilterCategory(id_mobile_category);
+              this.props.postLogEventClick();
+            }}
+          >
+            <View style ={styles.wrapperItemCate}>
+              {this.props.item.icon}
             </View>
-        )
+              <Text style={styles.nameCategory}> {this.props.item.name}</Text>
+            {/* {this.props.item.icon} */}
+          </TouchableOpacity>
+        );
     }
 }
 export default withNavigation(CategoryItem)
 
 const styles = StyleSheet.create({
-    container:{
-        height:50,
+    button:{ 
+        width:70,
+        height:100,
+        alignItems:'center',
+        paddingTop: 10,
+        marginHorizontal:5,
+    },
+    wrapperItemCate:{
         width:50,
+        height:50,
         backgroundColor:"#F2F2F2",
         borderRadius:25,
-        margin:15,
-        justifyContent:'center',
         alignItems:'center',
+        justifyContent:'center'
     },
-    button:{
-        position:'absolute',
-        top:-10,
-        left:-10,
-        right:0,
-        bottom:0,
-        width:70,
-        height:70,
-        justifyContent:'center',
-        alignItems:'center',
-    }
+    nameCategory:{
+        fontSize:12,
+        width:65,
+        textAlign:'center'
+    },
+
 })

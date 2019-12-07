@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Text, StyleSheet, View, TextInput,Image,Dimensions } from 'react-native'
 import { SearchBar } from 'react-native-elements';
 
-// let {width,height} = Dimensions.get('window')
+let {width} = Dimensions.get('window')
 export default class Search extends Component {
  constructor(props) {
    super(props)
@@ -18,13 +18,10 @@ export default class Search extends Component {
     this.setState({
       search: text
     })
-    
-
-    // )
   }
   render() {
     const {search} = this.state;
-    const {textplace,width} = this.props
+    const {textplace,width,style} = this.props
     return (
       <View>
         <SearchBar
@@ -38,13 +35,7 @@ export default class Search extends Component {
               width:width,
               alignSelf:'center'
           }}
-          inputContainerStyle={{
-            backgroundColor: "white",
-            width: width,
-            borderRadius: 10, 
-            alignSelf:'center',
-            
-          }}
+          inputContainerStyle={[styles.inputContainer,style]}
           inputStyle={{ color: "black",fontFamily: 'sf-font-pro', }}
         />
       </View>
@@ -52,4 +43,10 @@ export default class Search extends Component {
   }
   }
 const styles = StyleSheet.create({
+  inputContainer:{
+    backgroundColor: "white",
+    width: width * 0.77,
+    borderRadius: 10,  
+    alignSelf:'center',
+  }
 });

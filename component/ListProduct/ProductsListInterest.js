@@ -35,7 +35,7 @@ class ProductsListInterest extends Component {
             }}
           >
             <Text style={{ fontWeight: "800", paddingTop: 5 }}>
-              Có thể bạn quan tâm{" "}
+              Có thể bạn quan tâm
             </Text>
             <TouchableOpacity
               onPress={() => {

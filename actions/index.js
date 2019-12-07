@@ -25,16 +25,15 @@ import {
   FETCH_DETAIL_AD,
   FETCH_DETAIL_AD_SUCCESS,
   FETCH_DETAIL_AD_FAILED,
-  LOAD_FONT_FAMILY
+  LOAD_FONT_FAMILY,
+
 } from "./actionTypes";
 
-//Action "increment counter"
 export const loginSuccessAction = () =>{
     return{
         type:LOGIN_SUCCESS,
     }
 }
-//Action "decrement counter"
 export const logoutSuccessAction = () =>{
     return{
         type:LOGGOUT,
@@ -177,7 +176,6 @@ export const getDetailAdAction = () => {
 }
 
 export const getDetailAdSuccess = (receive_ads) => {
-    console.log("receive_ads was set")
     return {
         type:FETCH_DETAIL_AD_SUCCESS,
         receive_ads

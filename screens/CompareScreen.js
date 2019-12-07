@@ -5,13 +5,14 @@ import {
   Dimensions,
   TouchableOpacity,
   Image,
-  FlatList
+  FlatList,
+  SafeAreaView,
+  StatusBar
 } from "react-native";
 import Text from '../components/CustomText';
-import { AntDesign } from "@expo/vector-icons";
-
 import AdContainer from "../containers/AdContainer";
 import listProductsInterest from "../utils/ListProductsInterest";
+import ButtonGoback from '../components/ButtonGoBack';
 
 let { width, height } = Dimensions.get("window");
 export default class CompareScreen extends Component {
@@ -31,18 +32,12 @@ export default class CompareScreen extends Component {
     const { list_ad_interest } = this.props.adState;
     return (
       <View style={styles.container}>
+      <StatusBar  barStyle="dark-content"/>
         <View style={styles.header}>
-          <TouchableOpacity
-            style={styles.buttonGoback}
-            onPress={() => {
-              this.props.navigation.goBack();
-            }}
-          >
-            <AntDesign name="left" size={25} color="black" />
-          </TouchableOpacity>
+          <ButtonGoback  style={styles.buttonGoback} onPress={() => {this.props.navigation.goBack();}} />
           <Text style={styles.title}>So sánh</Text>
         </View>
-       
+
         <View style={styles.tabContenAd}>
           <TouchableOpacity
             style={{
@@ -62,7 +57,7 @@ export default class CompareScreen extends Component {
                 width: "100%",
                 paddingBottom: 5,
                 color: isSelectRecommand ? "black" : "#ffab00",
-                fontWeight: "bold"
+                fontWeight: isSelectRecommand ? "400" : "bold",
               }}
             >
               Đã xem
@@ -86,7 +81,8 @@ export default class CompareScreen extends Component {
                 width: "100%",
                 paddingBottom: 5,
                 color: isSelectRecommand ? "#ffab00" : "black",
-                fontWeight: "bold"
+                // fontWeight: "bold"
+                fontWeight: isSelectRecommand ? "bold" : "400",
               }}
             >
               Gợi ý cho bạn
@@ -135,28 +131,42 @@ export default class CompareScreen extends Component {
           ></FlatList>
         )}
       </View>
+      // {/* </StatusBar > */}
     );
   }
 }
 
 const styles = StyleSheet.create({
+  safeArea:{
+    backgroundColor:'#ffba00',
+    color:'#ffba00'
+  },
   container: {
     flex: 1,
     color: "#fff"
   },
   header: {
-    width: width,
     flexDirection: "row",
+    alignItems:'center',
+    width: width,
+    // backgroundColor: "#ffab00", 
+    backgroundColor: "white", 
+    marginTop:30,
     paddingLeft: 10,
-    paddingTop: 40,
-    backgroundColor: "#ffab00",
-    paddingBottom: 10
+    // paddingTop: 35,
+    paddingTop: 5,
+    paddingBottom: 10,
+  },
+  buttonGoback:{
+
   },
   title: {
-    paddingLeft: 15,
-    fontSize: 16,
+    alignSelf: 'center',
+    paddingLeft: 25,
+    fontSize: 17,
     fontWeight: "bold"
   },
+  
   tabListAds: {
     height: 50,
     flexDirection: "row",

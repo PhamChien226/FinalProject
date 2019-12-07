@@ -21,7 +21,7 @@ class FilterComponent extends Component {
           }}
         >
           <Text>Hồ Chí Minh</Text>
-          <AntDesign name="caretdown" size={18} />
+          <AntDesign name="caretdown" size={16} color="#3E3E3E" />
         </TouchableOpacity>
 
         <View style={{ width: 1, height: 20, backgroundColor: "gray" }}></View>
@@ -33,7 +33,7 @@ class FilterComponent extends Component {
           }}
         >
           <Text>Đồ điện tử</Text>
-          <AntDesign name="caretdown" size={18} />
+          <AntDesign name="caretdown" size={16} color="#3E3E3E" />
         </TouchableOpacity>
 
         <View style={{ width: 1, height: 20, backgroundColor: "gray" }}></View>
@@ -45,7 +45,7 @@ class FilterComponent extends Component {
           }}
         >
           <Text>Lọc</Text>
-          <AntDesign name="caretdown" size={18} />
+          <AntDesign name="caretdown" size={16} color="#3E3E3E" />
         </TouchableOpacity>
       </View>
     );

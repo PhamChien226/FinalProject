@@ -4,6 +4,7 @@
         name_category:"Bất Động Sản",
         id_main_category:null,
         image: require('../assets/cho-tot-nha.png')
+        // image: require('../assets/do-dien-tu-new.jpg')
     },
     {
         key:"2",

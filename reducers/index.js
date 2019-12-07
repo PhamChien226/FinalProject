@@ -6,6 +6,7 @@ import { adReducer } from "./AdReducer";
 import { compareReducers } from "./CompareReducer";
 import { recommandReducers } from "./RecommandReducer";
 import { adViewReducers } from "./AdViewReducer";
+import { dashBoardReducer } from "./AppReducer";
 
 export const allreducers = combineReducers({
   authState: authStateReducer,
@@ -13,5 +14,7 @@ export const allreducers = combineReducers({
   adState: adReducer,
   compareState: compareReducers,
   recommandState: recommandReducers,
-  adViewState: adViewReducers
+  adViewState: adViewReducers,
+  dashBoardState: dashBoardReducer,
+
 });

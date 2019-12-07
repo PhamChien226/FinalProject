@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { StyleSheet, View ,Image} from "react-native";
 import Text from '../components/CustomText';
 import { Search } from "../component";
-import {AntDesign} from '@expo/vector-icons'
+import {AntDesign,FontAwesome} from '@expo/vector-icons'
 
 export default class UserInfoScreen extends Component {
   static navigationOptions = ({navigation}) => {
@@ -14,7 +14,8 @@ export default class UserInfoScreen extends Component {
         //   source={require('../assets/user-icon.png')}
         //   style={{height:26, width: 26, }}
         // />
-        <AntDesign name="menu-fold" size={20} color={tintColor}/>
+        // <AntDesign name="menu-fold" size={20} color={tintColor}/>
+        <FontAwesome name="user" size={26} color={tintColor}/>
       )
     }
     return { tabBarLabel,tabBarIcon };

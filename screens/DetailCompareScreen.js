@@ -2,181 +2,34 @@ import React, { Component } from "react";
 import { StyleSheet, View, Dimensions, Image } from "react-native";
 import Text from '../components/CustomText';
 import { AntDesign, Entypo } from "@expo/vector-icons";
-import { Avatar } from "react-native-elements";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import MiniAddViewCompare from "../component/AddView/MiniAddViewCompare";
+import ButtonGoback from "../components/ButtonGoBack";
 
 let { width, height } = Dimensions.get("window");
 export default class DetailCompareScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
     header: null
   });
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isGetParam: true,
-      condition_ad_1: "",
-      elt_condition_1: "",
-      laptop_screen_size_1: "",
-      pc_brand_1: " ",
-      pc_cpu_1: "",
-      pc_drive_capacity_1: "",
-      pc_model_1: "",
-      pc_ram_1: "",
-      pc_vga_1: "",
-
-      condition_ad_2: "",
-      elt_condition_2: "",
-      laptop_screen_size_2: "",
-      pc_brand_2: " ",
-      pc_cpu_2: "",
-      pc_drive_capacity_2: "",
-      pc_model_2: "",
-      pc_ram_2: "",
-      pc_vga_2: ""
-    };
-  }
   componentDidMount =  () => {
-     this.getParameter_1();
-     this.getParameter_2();
   };
-
-  getParameter_1 = () => {
-    const {
-      ownCompare: { parameters }
-    } = this.props.compareState;
-
-    let condition_ad_1 = "";
-    let elt_condition_1 = "";
-    let laptop_screen_size_1 = "";
-    let pc_brand_1 = "";
-    let pc_cpu_1 = "";
-    let pc_drive_capacity_1 = "";
-    let pc_model_1 = "";
-    let pc_ram_1 = "";
-    let pc_vga_1 = "";
-    parameters.map((item, index) => {
-      if (item.name === "laptop_screen_size") {
-        laptop_screen_size_1 = item.value;
-      } else if (item.name === "pc_brand") {
-        pc_brand_1 = item.value;
-      } else if (item.name === "pc_cpu") {
-        pc_cpu_1 = item.value;
-      } else if (item.name === "pc_drive_capacity") {
-        pc_drive_capacity_1 = item.value;
-      } else if (item.name === "pc_model") {
-        pc_model_1 = item.value;
-      } else if (item.name === "pc_vga") {
-        pc_vga_1 = item.value;
-      } else if (item.name === "elt_condition") {
-        elt_condition_1 = item.value;
-      } else if (item.name === "pc_ram") {
-        pc_ram_1 = item.value;
-      }
-    });
-    this.setState({
-      isGetParam: false,
-      condition_ad_1,
-      elt_condition_1,
-      laptop_screen_size_1,
-      pc_brand_1,
-      pc_cpu_1,
-      pc_model_1,
-      pc_drive_capacity_1,
-      pc_ram_1,
-      pc_vga_1
-    });
-  };
-  getParameter_2 = () => {
-    const {
-      itemCompare: { parameters }
-    } = this.props.compareState;
-
-    let condition_ad_2 = "";
-    let elt_condition_2 = "";
-    let laptop_screen_size_2 = "";
-    let pc_brand_2 = "";
-    let pc_cpu_2 = "";
-    let pc_drive_capacity_2 = "";
-    let pc_model_2 = "";
-    let pc_ram_2 = "";
-    let pc_vga_2 = "";
-
-    parameters.map((item, index) => {
-      if (item.name === "laptop_screen_size") {
-        laptop_screen_size_2 = item.value;
-      } else if (item.name === "pc_brand") {
-        pc_brand_2 = item.value;
-      } else if (item.name === "pc_cpu") {
-        pc_cpu_2 = item.value;
-      } else if (item.name === "pc_drive_capacity") {
-        pc_drive_capacity_2 = item.value;
-      } else if (item.name === "pc_model") {
-        pc_model_2 = item.value;
-      } else if (item.name === "pc_vga") {
-        pc_vga_2 = item.value;
-      } else if (item.name === "elt_condition") {
-        elt_condition_2 = item.value;
-      } else if (item.name === "pc_ram") {
-        pc_ram_2 = item.value;
-      }
-    });
-    this.setState({
-      isGetParam: false,
-      condition_ad_2,
-      elt_condition_2,
-      laptop_screen_size_2,
-      pc_brand_2,
-      pc_cpu_2,
-      pc_model_2,
-      pc_drive_capacity_2,
-      pc_ram_2,
-      pc_vga_2
-    });
-  };
-
   render() {
-    const { ownCompare, itemCompare } = this.props.compareState;
-    // console.log("Detail Render");
-    // console.log(this.props.compareState);
-    // console.log(itemCompare)
     const {
-      isGetParam,
-      condition_ad_1,
-      elt_condition_1,
-      laptop_screen_size_1,
-      pc_brand_1,
-      pc_cpu_1,
-      pc_model_1,
-      pc_drive_capacity_1,
-      pc_ram_1,
-      pc_vga_1,
-      condition_ad_2,
-      elt_condition_2,
-      laptop_screen_size_2,
-      pc_brand_2,
-      pc_cpu_2,
-      pc_model_2,
-      pc_drive_capacity_2,
-      pc_ram_2,
-      pc_vga_2
-    } = this.state;
-    if (isGetParam) return <View></View>;
+      ownCompare,
+      ownCompare: { parameters },
+      itemCompare,
+      // itemCompare: { parameters }
+    } = this.props.compareState;
+    const ownParamester = this.props.compareState.ownCompare.parameters;
+    const itemParamester = this.props.compareState.ownCompare.parameters;
+    console.log("Detail Compare Screen")
+    console.log(ownParamester);
     return (
       <View style={styles.container}>
         <View style={styles.header}>
-          <TouchableOpacity
-            style={styles.buttonGoback}
-            onPress={() => {
-              this.props.navigation.goBack();
-            }}
-          >
-            <AntDesign name="left" size={27} color="black" />
-          </TouchableOpacity>
+          <ButtonGoback style={styles.buttonGoback} onPress={()=> this.props.navigation.goBack()}/>
           <Text style={styles.textHeader}>So sánh chi tiết</Text>
         </View>
-
         <ScrollView>
           <View style={styles.AConfig_1}>
             <Text style={styles.titleConfig}>Giá</Text>
@@ -185,44 +38,44 @@ export default class DetailCompareScreen extends Component {
           </View>
           <View style={styles.AConfig_2}>
             <Text style={styles.titleConfig}>Thương hiệu </Text>
-            <Text style={styles.contentConfig_1}>{pc_brand_1}</Text>
-            <Text style={styles.contentConfig_2}>{pc_brand_2}</Text>
+            <Text style={styles.contentConfig_1}>{ownParamester.pc_brand.value}</Text>
+            <Text style={styles.contentConfig_2}>{itemParamester.pc_brand.value}</Text>
           </View>
           <View style={styles.AConfig_1}>
             <Text style={styles.titleConfig}>Dòng máy</Text>
-            <Text style={styles.contentConfig_1}>{pc_model_1}</Text>
-            <Text style={styles.contentConfig_2}>{pc_model_2}</Text>
+            <Text style={styles.contentConfig_1}>{ownParamester.pc_model.value}</Text>
+            <Text style={styles.contentConfig_2}>{itemParamester.pc_model.value}</Text>
           </View>
           <View style={styles.AConfig_2}>
             <Text style={styles.titleConfig}>Tình trạng</Text>
-            <Text style={styles.contentConfig_1}>{elt_condition_1}</Text>
-            <Text style={styles.contentConfig_2}>{elt_condition_2}</Text>
+            <Text style={styles.contentConfig_1}>{ownParamester.elt_condition.value}</Text>
+            <Text style={styles.contentConfig_2}>{itemParamester.elt_condition.value}</Text>
           </View>
           <View style={styles.AConfig_1}>
             <Text style={styles.titleConfig}>Kích cỡ màn hình </Text>
-            <Text style={styles.contentConfig_1}>{laptop_screen_size_1}</Text>
-            <Text style={styles.contentConfig_2}>{laptop_screen_size_2}</Text>
+            <Text style={styles.contentConfig_1}>{ownParamester.laptop_screen_size.value}</Text>
+            <Text style={styles.contentConfig_2}>{itemParamester.laptop_screen_size.value}</Text>
           </View>
           <View style={styles.AConfig_2}>
             <Text style={styles.titleConfig}>Bộ vi xử lý</Text>
-            <Text style={styles.contentConfig_1}>{pc_cpu_1}</Text>
-            <Text style={styles.contentConfig_2}>{pc_cpu_2}</Text>
+            <Text style={styles.contentConfig_1}>{ownParamester.pc_cpu.value}</Text>
+            <Text style={styles.contentConfig_2}>{itemParamester.pc_cpu.value}</Text>
           </View>
           <View style={styles.AConfig_1}>
             <Text style={styles.titleConfig}>RAM</Text>
-            <Text style={styles.contentConfig_1}>{pc_ram_1}</Text>
-            <Text style={styles.contentConfig_2}>{pc_ram_2}</Text>
+            <Text style={styles.contentConfig_1}>{ownParamester.pc_ram.value}</Text>
+            <Text style={styles.contentConfig_2}>{itemParamester.pc_ram.value}</Text>
           </View>
           <View style={styles.AConfig_2}>
             <Text style={styles.titleConfig}>Card màn hình</Text>
-            <Text style={styles.contentConfig_1}>{pc_vga_1}</Text>
-            <Text style={styles.contentConfig_2}>{pc_vga_2}</Text>
+            <Text style={styles.contentConfig_1}>{ownParamester.pc_vga.value}</Text>
+            <Text style={styles.contentConfig_2}>{itemParamester.pc_vga.value}</Text>
           </View>
-          <View style={styles.AConfig_1}>
+          {/* <View style={styles.AConfig_1}>
             <Text style={styles.titleConfig}>Ổ cứng</Text>
-            <Text style={styles.contentConfig_1}>{pc_drive_capacity_1}</Text>
-            <Text style={styles.contentConfig_2}>{pc_drive_capacity_2}</Text>
-          </View>
+            <Text style={styles.contentConfig_1}>{ownCompare.pc_drive_capacity.value}</Text>
+            <Text style={styles.contentConfig_2}>{itemCompare.pc_drive_capacity.value}</Text>
+          </View> */}
 
           <View style={styles.miniViewCompare}>
             <MiniAddViewCompare
@@ -246,21 +99,25 @@ const styles = StyleSheet.create({
     flex: 1
   },
   header: {
-    backgroundColor: "#ffab00",
+    // backgroundColor: "#ffab00",
+    backgroundColor: "white",
     flexDirection: "row",
-    // justifyContent: "\-between",
-    paddingHorizontal: 15,
+    // justifyContent: "center",
     alignItems: "center",
-    paddingTop: 35,
-    paddingBottom: 10
+    paddingHorizontal: 15,
+    paddingTop: 40,
   },
-  textHeader: {
+  
+  textHeader : {
     paddingLeft: 20,
     fontSize: 16,
     fontWeight: "bold",
-    paddingBottom: 2
+    paddingBottom: 2,
+    alignSelf:'center'
   },
-  buttonGoback: {},
+  buttonGoback: {
+    paddingBottom:5
+  },
   nameSubject: {
     height: 55,
     width: width,

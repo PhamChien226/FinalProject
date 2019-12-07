@@ -13,8 +13,6 @@ import { StyleSheet, View,Image } from 'react-native';
         this.props.getDeviceId()
       }, 3000);
     }
-    
-
     render() {
         return (
           <View style={styles.container}>
@@ -29,14 +27,14 @@ import { StyleSheet, View,Image } from 'react-native';
 }
 
 const styles = StyleSheet.create({
-  container:{
-    flex:1,
-    justifyContent:'center',
-    alignItems:'center',
-    backgroundColor:'#ffba00'
-},
-logo:{
-    width:200,
-    height:200,
-}
-})
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#ffba00"
+  },
+  logo: {
+    width: 150,
+    height: 150
+  }
+});

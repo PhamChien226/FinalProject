@@ -34,7 +34,7 @@ function* postLogEvenCLick() {
 }
 
 function* fetchListAdsRecommand(){
-    console.log("fetchListAdsRecommand is clled")
+    // console.log("fetchListAdsRecommand is clled")
     try {
         const receiveListAds = yield Api.fetchListAdsRecommand();
         yield put ({type: FETCH_RECOMMAND_SUCCESS, receivelist_ads: receiveListAds})

@@ -4,20 +4,18 @@ import {
   View,
   TouchableOpacity,
   FlatList,
-  TextInput,
-  Image,
   Dimensions,
   ActivityIndicator,
-  AsyncStorage
 } from "react-native";
-import { ItemProduct, Search } from "../component";
-import { Entypo, AntDesign, Foundation } from "@expo/vector-icons";
+import {  Search } from "../component"; 
+import {  FontAwesome } from "@expo/vector-icons";
 import FilterComponent from "../component/FilterComponent/FilterComponent";
 import FilterCategory from "../component/FilterComponent/FilterCategory";
-
 import AdContainer from "../containers/AdContainer";
+import ButtonGoback from '../components/ButtonGoBack';
+import Filter from "../component/FilterComponent/Filter";
 
-let { width, height } = Dimensions.get("window");
+let { width } = Dimensions.get("window");
 export default class ListItemScreen extends Component {
   constructor(props) {
     super(props);
@@ -56,19 +54,19 @@ export default class ListItemScreen extends Component {
       <View style={{ flex: 1 }}>
         <View style={styles.container} ref={"listItem"}>
           <View style={styles.headerContainer}>
-            <TouchableOpacity
+            <ButtonGoback
               style={styles.buttonGoback}
               onPress={() => this.props.navigation.goBack()}
-            >
-              <AntDesign name="left" size={27} color="black" />
-            </TouchableOpacity>
-            <Search textplace={"Đồ điện tử - Laptop"} width={width * 0.77} />
+            />
+            <Search textplace={"Đồ điện tử - Laptop"} style={styles.search} />
             <TouchableOpacity style={styles.iconBookmark}>
-              <Foundation name="bookmark" size={27} color="black" />
+              <FontAwesome name="bookmark-o" size={27} color="black" />
             </TouchableOpacity>
           </View>
 
-          <FilterComponent />
+          {/* <FilterComponent /> */}
+          <Filter
+           />
 
           <FlatList
             data={list_ads}
@@ -111,30 +109,24 @@ const styles = StyleSheet.create({
     paddingTop: 30,
     flexDirection: "row",
     backgroundColor: "#ffba00",
-    alignItems: "center"
+    alignItems: "center", 
+    justifyContent: 'space-around',
+    
   },
   buttonGoback: {
-    paddingHorizontal: 8
+    paddingHorizontal: 8,
+    alignSelf: 'center',
+    width:width*0.11,
+  },
+  search:{
+    width:width*0.77,
   },
   iconBookmark: {
-    paddingHorizontal: 14
-  }
+    // marginLeft:9,
+    width:width*0.10,
+    alignSelf:'center',
+    justifyContent:"center",
+    alignItems:'center'
+    
+  }  
 });
- // adlist_id: 1, //gui list adlist_id
-  //         // ad_placement: null, //bo qua
-  //         // ad_position: null, //bo qua o screen nay
-  //         // ad_source: "stickyad", //co ba cai, co the vao data xem
-  //         // user_fingerprint: `redux`, //dung redux de update
-  //         // event_client_time: "2019-09-26T22:30:12", //co the dung expo date lam (lam sau)
-  //         // event_server_time: "2019-09-26T22:31:00", //chua biet
-  //         // page_name: "ADLISTING", //co ai cai (o day la ADLISTING)
-  //         // page_number: page, //lay page o trong state
-  //         // page_device: "HANDY", //mac dinhluon
-  //         // filter_brand: null, //null that
-  //         // filter_main_category_id: id_category, //id_category
-  //         // filter_category_id: listitem.category_name, //lap top hay dien thoai
-  //         // filter_keyword: null, //tam thoi de khong
-  //         // filter_price: null, //
-  //         // filter_region_id: 13000, //fill theo quan.
-  //         // filter_area_id: id_area, //filter theo quan
-  //         // filter_adtype: "sell" //mac dinh la sell

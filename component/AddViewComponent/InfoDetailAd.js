@@ -7,90 +7,87 @@ export default class InfoDetailAd extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      isGetParam: true,
-      condition_ad: "",
-      elt_condition: "",
-      mobile_brand: " ",
-      mobile_capacity: "",
-      mobile_color: "",
-      mobile_model: ""
-    };
+    // this.state = {
+    //   isGetParam: true,
+    //   condition_ad: "",
+    //   elt_condition: "",
+    //   mobile_brand: " ",
+    //   mobile_capacity: "",
+    //   mobile_color: "",
+    //   mobile_model: ""
+    // };
   }
   componentDidMount = () => {
-    const { parameters } = this.props;
-    this.getParameter(parameters);
+    // const { parameters } = this.props;
+    // this.getParameter(parameters);
   };
   getParameter = parameters => {
-    let condition_ad = "";
-    let elt_condition = "";
-    let mobile_brand = "";
-    let mobile_capacity = "";
-    let mobile_color = "";
-    let mobile_model = "";
-    parameters.map((item, index) => {
-      if (item.name === "mobile_brand") {
-        mobile_brand = item.value;
-      } else if (item.name === "mobile_model") {
-        mobile_model = item.value;
-      } else if (item.name === "elt_condition") {
-        elt_condition = item.value;
-      } else if (item.name === "condition_ad") {
-        condition_ad = item.value;
-      } else if (item.name === "mobile_color") {
-        mobile_color = item.value;
-      } else if (item.name === "mobile_capacity") {
-        mobile_capacity = item.value;
-      }
-    });
-    this.setState({
-      isGetParam: false,
-      condition_ad,
-      elt_condition,
-      mobile_brand,
-      mobile_capacity,
-      mobile_color,
-      mobile_model
-    });
+    // let condition_ad = "";
+    // let elt_condition = "";
+    // let mobile_brand = "";
+    // let mobile_capacity = "";
+    // let mobile_color = "";
+    // let mobile_model = "";
+    // parameters.map((item, index) => {
+    //   if (item.name === "mobile_brand") {
+    //     mobile_brand = item.value;
+    //   } else if (item.name === "mobile_model") {
+    //     mobile_model = item.value;
+    //   } else if (item.name === "elt_condition") {
+    //     elt_condition = item.value;
+    //   } else if (item.name === "condition_ad") {
+    //     condition_ad = item.value;
+    //   } else if (item.name === "mobile_color") {
+    //     mobile_color = item.value;
+    //   } else if (item.name === "mobile_capacity") {
+    //     mobile_capacity = item.value;
+    //   }
+    // });
+    // this.setState({
+    //   isGetParam: false,
+    //   condition_ad,
+    //   elt_condition,
+    //   mobile_brand,
+    //   mobile_capacity,
+    //   mobile_color,
+    //   mobile_model
+    // });
   };
 
   render() {
     // const name = ["Thương Hiệu","Dòng Máy", "Tình Trạng","Bảo Hành","Màu Sắc","Dung lượng"]
-    const { parameters } = this.props;
     const {
-      condition_ad,
-      elt_condition,
-      mobile_brand,
-      mobile_capacity,
-      mobile_color,
-      mobile_model,
-      isGetParam
-    } = this.state;
-    // console.log(mobile_brand)
-    if (isGetParam) {
-      return <View></View>; 
-    } else
+      parameters,
+      parameters: {
+        // condition_ad,
+        elt_condition,
+        mobile_brand,
+        mobile_capacity,
+        mobile_color,
+        mobile_model
+      }
+    } = this.props;
       return (
         <View>
           <View style={styles.AConfig_1}>
             <Text style={styles.titleConfig}>Thương hiệu </Text>
-            <Text style={styles.contentConfig}>{mobile_brand}</Text>
+            <Text style={styles.contentConfig}>{mobile_brand.value}</Text>
           </View>
           <View style={styles.AConfig_2}>
             <Text style={styles.titleConfig}>Dòng máy</Text>
-            <Text style={styles.contentConfig}>{mobile_model}</Text>
+            <Text style={styles.contentConfig}>{mobile_model.value}</Text>
           </View>
           <View style={styles.AConfig_1}>
             <Text style={styles.titleConfig}>Tình trạng</Text>
-            <Text style={styles.contentConfig}>{elt_condition}</Text>
+            <Text style={styles.contentConfig}>{elt_condition.value}</Text>
           </View>
           <View style={styles.AConfig_2}>
             <Text style={styles.titleConfig}>Màu sắc</Text>
-            <Text style={styles.contentConfig}>{mobile_color}</Text>
+            <Text style={styles.contentConfig}>{mobile_color.value}</Text>
           </View>
           <View style={styles.AConfig_1}>
             <Text style={styles.titleConfig}>Dung lượng</Text>
-            <Text style={styles.contentConfig}>{mobile_capacity}</Text>
+            <Text style={styles.contentConfig}>{mobile_capacity.value}</Text>
           </View>
         </View>
       );

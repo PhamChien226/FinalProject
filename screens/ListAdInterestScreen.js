@@ -7,21 +7,20 @@ import {
   Dimensions,
   FlatList,
   AsyncStorage,
-  ActivityIndicator
+  ActivityIndicator,
+  StatusBar
 } from "react-native";
 import Text from '../components/CustomText';
-import { AntDesign, Entypo } from "@expo/vector-icons";
 import AdContainer from '../containers/AdContainer'
+import ButtonGoback from "../components/ButtonGoBack";
 
 let { width, heigth } = Dimensions.get("window");
 export default class ListAdInterestScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
     header: null
   });
-
   constructor(props) {
     super(props)
-  
     this.state = {
        isLoading:false
     };
@@ -31,36 +30,27 @@ export default class ListAdInterestScreen extends Component {
     this.props.onFetchRecommand();
   }
   renderFooter = () => {
-    // const { isLoading} = this.state;
       return <ActivityIndicator size="large" animating={true} />;
   };
 
   render() {
-    // const {isLoading} = this.state
     const {list_ads_interest,isLoading} = this.props.recommand;
 
     if(isLoading) return this.renderFooter();
     else
     return (
       <View style={styles.container}>
+        <StatusBar  barStyle="dark-content"/>
         <View style={styles.header}>
-          <TouchableOpacity
-            style={styles.buttonGoback}
-            onPress={() => {
-              this.props.navigation.goBack();
-            }}
-          >
-            <AntDesign name="left" size={25} color="black" />
-          </TouchableOpacity>
+          <ButtonGoback onPress={() => {this.props.navigation.goBack();}}/>
           <Text style={styles.title}>Có thể bạn quan tâm</Text>
         </View>
+          <View style={styles.borderHeader}></View>
 
         <FlatList
             data={list_ads_interest}
             style={{ backgroundColor: "white", paddingBottom: 30 }}
             renderItem={({ item, index }) => {
-              console.log("ListAdInterestScreen")
-              console.log(item)
               return (
                 <AdContainer
                   item={item}
@@ -85,20 +75,27 @@ export default class ListAdInterestScreen extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-},
-header: {
-    width: width,
+    flex: 1
+  },
+  header: {
     flexDirection: "row",
+    width: width,
+    backgroundColor: "white",
     paddingLeft: 10,
     paddingTop: 40,
-    backgroundColor: "#ffab00",
-    paddingBottom:7
+    paddingBottom: 10
+  },
+  borderHeader: {
+    width: width * 0.92,
+    alignSelf: "center",
+    height: 1,
+    backgroundColor: "#E8EAED"
   },
   title: {
     paddingLeft: 15,
     fontSize: 16,
-    fontWeight:'800'
+    fontWeight: "800",
+    alignSelf: "center"
   },
   containerItem: {
     flexDirection: "row",
@@ -111,7 +108,7 @@ header: {
     borderBottomColor: "#c4c4c4",
     borderWidth: 1,
     borderColor: "white",
-    backgroundColor:'white'
+    backgroundColor: "white"
   },
   button: {
     position: "absolute",

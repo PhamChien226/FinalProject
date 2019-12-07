@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { StyleSheet, View,Image } from 'react-native';
 import Text from '../components/CustomText';
 import { Search } from "../component";
-import {SimpleLineIcons} from '@expo/vector-icons'
+import {MaterialCommunityIcons} from '@expo/vector-icons'
 
 
 export default class HistoryScreen extends Component {
@@ -15,7 +15,7 @@ export default class HistoryScreen extends Component {
             //     source={require("../assets/history-icon.png")}
             //     style={{ height: 26, width: 26 }}
             //   />
-            <SimpleLineIcons name="user" color={tintColor} size={25}/>
+            <MaterialCommunityIcons name="plus-box" color={tintColor} size={25}/>
             );
         }
         return { tabBarLabel,tabBarIcon };

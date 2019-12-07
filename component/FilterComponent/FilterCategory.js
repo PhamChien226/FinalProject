@@ -15,10 +15,6 @@ export default class FilterCategory extends Component {
     };
 
     renderItem =(item) => {
-        console.log(item)
-        // return (
-        //     <MiniAddView data = {item}/>
-        // )
     }
     
     render() {  
@@ -46,9 +42,9 @@ export default class FilterCategory extends Component {
 
 const styles = StyleSheet.create({
     container:{
-        height:70,
+        // height:70,
         backgroundColor:'white',
-        borderRadius:10,
-        paddingLeft:10
+        // borderRadius:10,
+        // paddingLeft:10
     }
 })

@@ -84,23 +84,23 @@ class ImageComponent extends React.Component {
             }}
           >
             <View style={styles.backgroundIconHeart}></View>
-            <AntDesign name="left" size={27} color="white" />
+            <AntDesign name="left" size={22} color="white" />
           </TouchableOpacity>
 
           <View style={styles.rightHeaderWrapper}>
             <TouchableOpacity
               style={styles.buttonLikeWrapper}
               onPress={this.onPressLogin}
-            >
+            > 
               <View style={styles.backgroundIconHeart}></View>
               {isLogin ? (
-                <AntDesign name="heart" size={25} color="#D0021B" />
+                <AntDesign name="heart" size={21} color="#D0021B" />
               ) : (
-                <AntDesign name="hearto" size={25} color="white" />
+                <AntDesign name="hearto" size={21} color="white" />
               )}
             </TouchableOpacity>
             <TouchableOpacity>
-              <Entypo name="dots-three-horizontal" size={30} color="white" />
+              <Entypo name="dots-three-horizontal" size={25} color="white" />
             </TouchableOpacity>
           </View>
         </View>
@@ -121,21 +121,22 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     marginHorizontal: 10,
-    alignItems: "center"
+    alignItems: "center",
+    paddingLeft:5
   },
   rightHeaderWrapper: {
     flexDirection: "row"
   },
   buttonGoback: {
-    height: 37,
-    width: 37,
+    height: 31,
+    width: 31,
     justifyContent: "center",
-    alignItems: "center"
-    // paddingLeft: 8
+    alignItems: "center",
+    // paddingLeft: 5  
   },
   buttonLikeWrapper: {
-    height: 37,
-    width: 37,
+    height: 31,
+    width: 31,
     justifyContent: "center",
     alignItems: "center",
     marginRight: 10
@@ -147,7 +148,7 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     backgroundColor: "#c4c4c4",
-    borderRadius: 18,
+    borderRadius: 15,
     opacity: 0.4
   }
 });

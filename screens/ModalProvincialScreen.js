@@ -10,6 +10,7 @@ import Text from '../components/CustomText';
 
 import {withNavigation} from 'react-navigation'
 import {AntDesign} from '@expo/vector-icons'
+import ButtonGoback from '../components/ButtonGoBack';
 
 let{width} = Dimensions.get('window');
 
@@ -35,42 +36,42 @@ class ModalProvincialScreen extends Component {
       const data = this.props.navigation.getParam('data')
     return (
       <View style={styles.container}>
-      <TouchableOpacity style={styles.header} onPress={()=>{
-        this.props.navigation.navigate('ListItem')
-      }}>
-          <AntDesign name="arrowleft" size={30} color="black" />
-          </TouchableOpacity>
+        <View  style={styles.header}>
+          <ButtonGoback
+          style={styles.buttonGoback}
+          onPress={() => {this.props.navigation.navigate("ListItem")}}
+          />
+        </View>
         <ScrollView>
-        {data.map((item, index) => (
+          {data.map((item, index) => (
             <TouchableOpacity
-            key={item.id_area}
-            style={{
-              borderWidth: 1,
-              borderColor: "#c4c4c4",
-              height: 50,
-            }}
-            onPress={async ()=>{
-              await this.setState({ value: item.name });
-              await this.props.onClickFilterCategory(item.id_area);
-              await this.props.navigation.navigate('ListItem',{
-              })
-            }}
-            activeOpacity={0.9}
-          >
-            <View key={item.name} style={styles.buttonContainer}>
-              <Text>{item.name}</Text>
-              <TouchableOpacity
-                style={styles.circle}
-                onPress={async () => {
-                  this.setState({ value: item.name });
-                 await this.props.onClickFilterCategory(item.id_area);
-                }}
-              >
-                {value === item.name && <View style={styles.checkedCircle} />}
-              </TouchableOpacity>
-            </View>
-          </TouchableOpacity>
-        ))}
+              key={item.id_area}
+              style={{
+                borderWidth: 1,
+                borderColor: "#c4c4c4",
+                height: 50
+              }}
+              onPress={async () => {
+                await this.setState({ value: item.name });
+                await this.props.onClickFilterCategory(item.id_area);
+                await this.props.navigation.navigate("ListItem", {});
+              }}
+              activeOpacity={0.9}
+            >
+              <View key={item.name} style={styles.buttonContainer}>
+                <Text>{item.name}</Text>
+                <TouchableOpacity
+                  style={styles.circle}
+                  onPress={async () => {
+                    this.setState({ value: item.name });
+                    await this.props.onClickFilterCategory(item.id_area);
+                  }}
+                >
+                  {value === item.name && <View style={styles.checkedCircle} />}
+                </TouchableOpacity>
+              </View>
+            </TouchableOpacity>
+          ))}
         </ScrollView>
       </View>
     );
@@ -86,6 +87,9 @@ const styles = StyleSheet.create({
   header: {
     backgroundColor: "#ffab00",
     paddingTop:35,
+    
+  },
+  buttonGoback:{
     paddingLeft:10,
     paddingBottom:15
   },

@@ -7,14 +7,11 @@ import {
   Alert,Image
 } from "react-native";
 import Text from '../../components/CustomText';
-import { EvilIcons } from "@expo/vector-icons";
+import { SimpleLineIcons } from "@expo/vector-icons";
 import {withNavigation} from 'react-navigation'
 
-let fontSF = null;
-let { width } = Dimensions.get("window");
 class InfoAddComponent extends Component {
   onPressLogin=()=>{
-    // const deletingRow = this.state.activeRowKey;
     Alert.alert(
         '           Thông Báo',
         'Để thực hiện chức năng này Bạn phải đăng nhập ?',
@@ -31,7 +28,6 @@ class InfoAddComponent extends Component {
 }
     onPress=()=>{
       const {item} = this.props
-      console.log("compare nè")
       this.props.getItemOwnCompare(item)
            this.props.navigation.navigate('Compare')
            
@@ -39,15 +35,31 @@ class InfoAddComponent extends Component {
   render() {
     const { date, subject, price_string } = this.props;
     fontSF = this.props.adViewState;
-    console.log("Info ad Component")
-    console.log(fontSF);
+   
     return (
       <View style={styles.container}>
-          <Text style={styles.textTitle}>{subject}</Text>
+        <Text style={styles.textTitle}>{subject}</Text>
+        <View style={styles.priceAndCompare}>
           <Text style={styles.textPrice}>{price_string}</Text>
-          <Text style={styles.textExtra}>{date}</Text>
+          <TouchableOpacity
+            style={styles.buttonCompare}
+            activeOpacity={1}
+            onPress={this.onPress}
+          >
+            <Image
+              source={require("../../assets/compare.png")}
+              style={styles.iconSoSanh}
+            />
+            <Text style={styles.textButton}> So sánh </Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.wrapperdate}>
+        <SimpleLineIcons name="note" size={10
+        } color="#727C8E" />
+        <Text style={styles.textExtra}>{" "}{date}</Text>
+        </View>
         {/* <View style={styles.rightContainer}> */}
-          {/* <TouchableOpacity
+        {/* <TouchableOpacity
             style={styles.buttonSaveAd}
             activeOpacity={1}
             onPress={this.onPressLogin}
@@ -55,15 +67,15 @@ class InfoAddComponent extends Component {
             <Text style={styles.textButton}>Lưu Tin</Text>
             <EvilIcons name="heart" size={25} color="red" />
           </TouchableOpacity> */}
-          <TouchableOpacity
+        {/* <TouchableOpacity
             style={styles.buttonCompare}
             activeOpacity={1}
             onPress={this.onPress}
           >
             <Image source={require("../../assets/compare.png")} style={styles.iconSoSanh} />
             <Text style={styles.textButton}> So sánh </Text>
-          </TouchableOpacity>
-          {/* </View> */}
+          </TouchableOpacity> */}
+        {/* </View> */}
       </View>
     );
   }
@@ -72,11 +84,11 @@ export default withNavigation(InfoAddComponent)
 
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: 10,
+    marginHorizontal: 10, 
     marginVertical:5,
     paddingBottom: 5,
     borderWidth: 1,
-    borderBottomColor: "#c4c4c4",
+    borderBottomColor: "#F3F6FB",
     borderColor: "white",
     
   },
@@ -91,44 +103,38 @@ const styles = StyleSheet.create({
   textTitle: {
     fontSize: 19,
     fontWeight: "bold",
-    fontFamily: fontSF
+    // fontWeight: "400",
+  },
+  priceAndCompare:{
+    flexDirection:'row',
+    alignItems:"center"
+
   },
   textPrice: {
+    flex:0.75,
     fontSize: 17,
     color: "brown",
-    fontWeight: "500",
+    fontWeight: "bold",
+    // fontWeight: "400",
     paddingVertical:4,
-    fontFamily: fontSF
+  },
+  wrapperdate:{
+    flexDirection:'row',
+    alignItems:'center'
   },
   textExtra: {
-    color: "#c4c4c4",
+    fontSize:12,
+    color: "gray",
     fontWeight: "300",
-    fontFamily: fontSF
   },
-  // buttonSaveAd: {
-  //   position:"absolute",
-  //   top:0,
-  //   left:width*0.7,
-  //   flexDirection: "row",
-  //   height: 30,
-  //   width: 90,
-  //   borderColor: "red",
-  //   borderRadius: 10,
-  //   borderWidth: 1,
-  //   alignItems: "center",
-  //   justifyContent: "center"
-  // },
   buttonCompare: {
-    position:"absolute",
-    top:30,
-    left:width*0.7,
+    flex:0.25,
     flexDirection: "row",
     height: 30,
-    width: 90,
     backgroundColor:'#ffab00',
-    borderRadius: 10,
     alignItems: "center",
-    justifyContent: "center"
+    borderRadius: 10,
+    justifyContent: "center",
   },
   textButton: {
     alignSelf: "center"

@@ -1,13 +1,12 @@
 import React, { Component } from "react";
-import { Text, StyleSheet, View, Dimensions,ScrollView } from "react-native";
-
-import * as Font from 'expo-font';
+import { StyleSheet, View, Dimensions,ScrollView } from "react-native";
+import Text from '../components/CustomText'
 import { FeedItem, Search } from "../component";
 import dataCategory from "../utils/dataHome";
 import Slide  from "../component/Slide";
 import LogoComponent from '../component/Header/LogoComponent'
 import ListAdInterestHorizontal from "../containers/ListAdInterestHorizontal";
-
+import ButtonReadMore from '../components/ButtonReadMore'
 
 let{width} = Dimensions.get('window')
 export default class HomeScreen extends Component {
@@ -15,37 +14,86 @@ constructor(props) {
   super(props)
 
   this.state = {
-    fontLoaded:false
+    fontLoaded:true,
+    isReadMore: false,
   };
 };
 
   async  componentWillMount() {
-    // await Font.loadAsync({
-    //   'sf-font-pro': require('../assets/fonts/FontsFree-Net-SFProDisplay-Regular.ttf'),
-    // });
     this.setState({fontLoaded :true})
   }
   updateSearch = text => {
     // xử lý kết quả search ở đây
   };
+
+  readMore =()=> {
+    this.setState({
+      isReadMore:true
+    })
+  }
+  readLess =()=> {
+    this.setState({
+      isReadMore:false
+    })
+  }
+  renderCateItem =()=> {
+    // const { isReadMore } = this.props.dashBoardState; 
+    const { isReadMore } = this.state; 
+    let newData = [];
+    if (!isReadMore) {
+      newData = dataCategory.slice(0, 6);
+      return (
+        <View>
+          <View style={styles.categoryWrapper}>
+            {newData.map((item, index) => {
+              return <FeedItem item={item} index={index} key={item.key} />;
+            })}
+          </View>
+          <ButtonReadMore contentText="Xem thêm" amount={8} 
+          // onPress= {this.props.onClickReadMore()}
+          onPress= {this.readMore}
+          />
+        </View>
+      );
+    } 
+    else{ 
+      newData = dataCategory;
+      return (
+        <View>
+          <View style={styles.categoryWrapper}>
+            {newData.map((item, index) => {
+              return <FeedItem item={item} index={index} key={item.key} />;
+            })}
+          </View>
+          {/* <ButtonReadMore
+            contentText="Thu gọn"
+            nameIcon="caretup"
+            //  onPress= {this.props.onClickReadLess()}
+            onPress={this.readLess}
+            styleIcon={{paddingTop:8}}
+          /> */}
+        </View>
+      );
+    } 
+    // return newData;
+    
+  }
+
   render() {
-    const {fontLoaded} =  this.state;
+    const {fontLoaded,isReadMore} =  this.state;
  return (
    <View style={styles.container}>
      <LogoComponent />
      <Search
        updateSearch={this.updateSearch}
        textplace={"Bạn cần tìm gì hôm nay..."}
-       width={width * 0.9}
+       style={styles.search}
      />
      <ScrollView>
        <View style={styles.scrollViewContainer}>
-         <Slide
-           style={{ height: 120, backgroundColor: "#ffab00", borderRadius: 5 }}
-         />
-         {/* <ProductsListViewed/> */}
-         <ListAdInterestHorizontal/>
-          
+         <Slide/>
+         <ListAdInterestHorizontal />
+
          {fontLoaded ? (
            <Text
              style={{
@@ -57,11 +105,11 @@ constructor(props) {
            >
              Khám Phá Danh Mục
            </Text>
-         ) : <Text></Text>}
+         ) : (
+           <Text></Text>
+         )}
          <View style={styles.categoryWrapper}>
-           {dataCategory.map((item, index) => {
-             return <FeedItem item={item} index={index} key={item.key} />;
-           })}
+           {this.renderCateItem()}
          </View>
        </View>
      </ScrollView>
@@ -82,6 +130,9 @@ const styles = StyleSheet.create({
     backgroundColor:"#ffba00",
     paddingTop:30
   },
+  search:{
+    width:width*0.9
+  },
   scrollViewContainer:{
     flex: 1,
     alignContent: "center",
@@ -98,6 +149,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    marginBottom:10
   },
 });
