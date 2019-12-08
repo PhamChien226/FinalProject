@@ -16,14 +16,12 @@ export default class DetailCompareScreen extends Component {
   render() {
     const {
       ownCompare,
-      ownCompare: { parameters },
       itemCompare,
-      // itemCompare: { parameters }
+      imageOfToBeItem,
+      imageOfOwnItem
     } = this.props.compareState;
     const ownParamester = this.props.compareState.ownCompare.parameters;
-    const itemParamester = this.props.compareState.ownCompare.parameters;
-    console.log("Detail Compare Screen")
-    console.log(ownParamester);
+    const itemParamester = this.props.compareState.itemCompare.parameters;
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -80,11 +78,11 @@ export default class DetailCompareScreen extends Component {
           <View style={styles.miniViewCompare}>
             <MiniAddViewCompare
               item={ownCompare}
-              image={require("../assets/laptop1.jpg")}
+              image={imageOfOwnItem}
             />
             <MiniAddViewCompare
               item={itemCompare}
-              image={require("../assets/laptop3.jpg")}
+              image={imageOfToBeItem}
             />
           </View>
         </ScrollView>
@@ -107,7 +105,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingTop: 40,
   },
-  
+
   textHeader : {
     paddingLeft: 20,
     fontSize: 16,

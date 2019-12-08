@@ -90,17 +90,19 @@ export const clickAd = (item) =>{
     }
 }
 
-export const getAdItemOwnCompare = (item) =>{
+export const getAdItemOwnCompare = (item,imageOfOwnItem) =>{
     return{
         type:COMPARE_OWN,
-        item:item
+        item:item,
+        imageOfOwnItem:imageOfOwnItem
     }
 }
 
-export const getAdItemToBeCompare = (item) =>{
+export const getAdItemToBeCompare = (item,imageOfToBeItem) =>{
     return{
         type:TO_BE_COMPARE,
-        item:item
+        item:item,
+        imageOfToBeItem:imageOfToBeItem
     }
 }
 

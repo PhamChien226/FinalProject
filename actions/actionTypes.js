@@ -51,3 +51,5 @@ export const LOAD_FONT_FAILED = "LOAD_FONT_FAILED";
 //action app
 export const READ_MORE = "READ_MORE";
 export const READ_LESS = "READ_LESS";
+
+export const CLICK_CATEGRORY = "CLICK_CATEGRORY";

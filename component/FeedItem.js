@@ -3,6 +3,7 @@ import {  StyleSheet, View, Image, Dimensions,TouchableOpacity,ImageBackground }
 import Text from '../components/CustomText';
 import { withNavigation } from "react-navigation";
 import { LinearGradient } from "expo-linear-gradient";
+import newListCategory from '../utils/newListCategory'
 
 let { width } = Dimensions.get("window");
 class FeedItem extends Component {
@@ -14,6 +15,14 @@ class FeedItem extends Component {
         <TouchableOpacity
           style={styles.buttonWrapperCateRS}
           activeOpacity={0.8}
+          onPress={() => {
+            if (item.name_category === "Đồ điện tử") {
+                this.props.clickCategory(newListCategory);
+              this.props.navigation.navigate("ListItem", {
+                id_main_category: item.id_main_category
+              });
+            }
+          }}
         >
           <Image
             source={item.image}
@@ -32,7 +41,9 @@ class FeedItem extends Component {
       // <View style={styles.smallCategory}>
         <TouchableOpacity
           onPress={() => {
-            if (item.key === "3") {
+            // if (item.key === "3") {
+            if (item.name_category === "Đồ điện tử") {
+                this.props.clickCategory(newListCategory);
               this.props.navigation.navigate("ListItem", {
                 id_main_category: item.id_main_category
               });

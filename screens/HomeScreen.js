@@ -36,9 +36,14 @@ constructor(props) {
       isReadMore:false
     })
   }
+
+  _getNewListCategory =(listCategory)=> {
+    this.props.onclickCategory(listCategory)
+  }
   renderCateItem =()=> {
     // const { isReadMore } = this.props.dashBoardState; 
     const { isReadMore } = this.state; 
+    const dataCategory = this.props.dashBoardState.listCategory;
     let newData = [];
     if (!isReadMore) {
       newData = dataCategory.slice(0, 6);
@@ -46,11 +51,12 @@ constructor(props) {
         <View>
           <View style={styles.categoryWrapper}>
             {newData.map((item, index) => {
-              return <FeedItem item={item} index={index} key={item.key} />;
+              return <FeedItem item={item} index={index} key={item.key}
+              clickCategory={this._getNewListCategory} 
+              />;
             })}
           </View>
           <ButtonReadMore contentText="Xem thêm" amount={8} 
-          // onPress= {this.props.onClickReadMore()}
           onPress= {this.readMore}
           />
         </View>
@@ -62,7 +68,14 @@ constructor(props) {
         <View>
           <View style={styles.categoryWrapper}>
             {newData.map((item, index) => {
-              return <FeedItem item={item} index={index} key={item.key} />;
+              return (
+                <FeedItem
+                  item={item}
+                  index={index}
+                  key={item.key}
+                  clickCategory={this._getNewListCategory}
+                />
+              );
             })}
           </View>
           {/* <ButtonReadMore
@@ -80,7 +93,7 @@ constructor(props) {
   }
 
   render() {
-    const {fontLoaded,isReadMore} =  this.state;
+    const {fontLoaded,} =  this.state;
  return (
    <View style={styles.container}>
      <LogoComponent />
@@ -92,7 +105,8 @@ constructor(props) {
      <ScrollView>
        <View style={styles.scrollViewContainer}>
          <Slide/>
-         <ListAdInterestHorizontal />
+         {this.props.dashBoardState.listCategory === dataCategory ? <View></View> :  <ListAdInterestHorizontal />}
+         {/* <ListAdInterestHorizontal /> */}
 
          {fontLoaded ? (
            <Text

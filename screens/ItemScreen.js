@@ -65,6 +65,8 @@ class ItemScreen extends Component {
       }
     } = this.props.adViewState;
 
+    const image = this.props.navigation.getParam('image')
+
     if (isLoading)
       return <ActivityIndicator size={"large"} animating={true} />;
     else
@@ -76,6 +78,7 @@ class ItemScreen extends Component {
               // style={{height:height*0.45}}
               height={height * 0.45}
               category_name={category_name}
+              image={image}
             />
             <InfoAddContainer
               ad_view={adViewCurrent}
@@ -86,6 +89,7 @@ class ItemScreen extends Component {
               addLogin={this.addLogin}
               item={adViewCurrent}
               fontSF = {fontSF}
+              image={image}
             />
             <InfoMechantComponent
               avatar={publisher.avatar}
@@ -150,7 +154,7 @@ class ItemScreen extends Component {
             </View>
 
             {isTabDetails ? (
-              <View>
+              <View style={{paddingBottom:50}}>
                 {category_name === "Laptop" ? (
                   <InfoDetailAdLapTop parameters={parameters} />
                   ) : (
@@ -191,11 +195,9 @@ export default withNavigation(ItemScreen);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    
   },
   viewContainer: {
     backgroundColor: "white",
-    // marginBottom:50
   },
   headerContainer: {
     position: "absolute",
@@ -241,6 +243,9 @@ const styles = StyleSheet.create({
     borderWidth:5,
     borderColor:"white",
     borderBottomColor:'#F8F9FD',
+  },
+  productInterest:{
+    // marginBottom:50
   },
 
   textBodyAddWrapper: {

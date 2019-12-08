@@ -3,68 +3,6 @@ import { StyleSheet, View } from "react-native";
 import Text from '../../components/CustomText';
 
 export default class InfoDetailAdLapTop extends Component {
-  constructor(props) {
-    super(props);
-
-  //   this.state = {
-  //     isGetParam: true,
-  //     condition_ad: "",
-  //     elt_condition: "",
-  //     laptop_screen_size:'',
-  //     pc_brand: " ",
-  //     pc_cpu: "",
-  //     pc_drive_capacity: "",
-  //     pc_model: "",
-  //     pc_ram: "",
-  //     pc_vga: "",
-  //   };
-  }
-  componentDidMount = () => {
-    // const { parameters } = this.props;
-    // this.getParameter(parameters);
-  };
-  // getParameter = parameters => {
-  //   let condition_ad = "";
-  //   let elt_condition = "";
-  //   let laptop_screen_size = "";
-  //   let pc_brand = "";
-  //   let pc_cpu = "";
-  //   let pc_drive_capacity = "";
-  //   let pc_model = "";
-  //   let pc_ram = "";
-  //   let pc_vga = "";
-  //   parameters.map((item, index) => {
-  //     if (item.name === "laptop_screen_size") {
-  //       laptop_screen_size = item.value;
-  //     } else if (item.name === "pc_brand") {
-  //       pc_brand = item.value;
-  //     } else if (item.name === "pc_cpu") {
-  //       pc_cpu = item.value;
-  //     } else if (item.name === "pc_drive_capacity") {
-  //       pc_drive_capacity = item.value;
-  //     } else if (item.name === "pc_model") {
-  //       pc_model = item.value;
-  //     } else if (item.name === "pc_vga") {
-  //       pc_vga = item.value;
-  //     } else if (item.name === "elt_condition") {
-  //       elt_condition = item.value;
-  //     } else if (item.name === "pc_ram") {
-  //       pc_ram = item.value;
-  //     }
-  //   });
-  //   this.setState({
-  //     isGetParam: false,
-  //     condition_ad,
-  //     elt_condition,
-  //     laptop_screen_size,
-  //     pc_brand,
-  //     pc_cpu,
-  //     pc_model,
-  //     pc_drive_capacity,
-  //     pc_ram,
-  //     pc_vga
-  //   });
-  // };
 
   render() {
     const {
@@ -82,9 +20,7 @@ export default class InfoDetailAdLapTop extends Component {
         isGetParam
       }
     } = this.props;
-    // if (isGetParam) {
-    //   return <View></View>; 
-    // } else
+    
       return (
         <View style={styles.infoConfigWrapper}>
         <View style={styles.AConfig_1}>
@@ -121,12 +57,6 @@ export default class InfoDetailAdLapTop extends Component {
         </View> */}
       </View>
       );
-      // }
-    // return(
-    //   <View>
-    //     <Text>Không lỗi</Text>
-    //   </View>
-    // )
     }  
 }
 
@@ -149,9 +79,9 @@ const styles = StyleSheet.create({
     height: 39
   },
   titleConfig: {
-    flex: 0.6
+    flex: 0.5
   },
   contentConfig: {
-    flex: 0.4
+    flex: 0.5
   }
 });

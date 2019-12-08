@@ -12,22 +12,34 @@ import Text from '../components/CustomText';
 import { withNavigation } from "react-navigation";
 import { Entypo, MaterialIcons, FontAwesome,SimpleLineIcons,Octicons } from "@expo/vector-icons";
 import mobileImages from '../utils/images/mobileImages'
+import laptopImages from '../utils/images/laptopImages'
 
 let { width, height } = Dimensions.get("window");
 
 class IconKindBuyer extends Component {
   render() {
     if (this.props.kind == "pro") 
-      return <MaterialIcons name="store" size={19} color="#ffab00" />;
-    else return <FontAwesome name="user-circle-o" size={14} color="#ffab00" />;
+      return <MaterialIcons name="store" size={14} color="#ffab00" />;
+    else return <FontAwesome name="user-circle-o" size={12} color="#ffab00" />;
   }
 }
 
 class ItemProduct extends Component {
 
   _getImage  = () => {
-    let rand = mobileImages[Math.floor(Math.random() * mobileImages.length)];
-    return rand.images[0];
+     const {item : {category_name}} = this.props;
+    if(category_name == "Laptop"){
+      let rand =   Math.floor(Math.random() * (laptopImages.length-1))
+      let image =  laptopImages[rand];
+      return image.images[0];
+    }if(category_name == "Điện thoại"){
+      let rand = Math.floor(Math.random() * (mobileImages.length-1))
+      let item = mobileImages[rand];
+      return item.thumbnail_image;
+    }else{
+      return "https://media.licdn.com/dms/image/C4D0BAQFIMX64Exzqdg/company-logo_200_200/0?e=2159024400&v=beta&t=hBmuvIWcA0jkkD-BeQWAiqwjc1shaM_vn6MKKBO_X8c"
+    }
+
   }
   render() {
     const {
@@ -39,11 +51,12 @@ class ItemProduct extends Component {
         subject,
         seller_type,
         create_elapse,
-        adlist_id
+        adlist_id,
+        thumbnail_img_url
       },nameTransparent 
     } = this.props;
 
-    
+    const image = this._getImage();
  
     return (
       <View style={styles.container}>
@@ -51,21 +64,26 @@ class ItemProduct extends Component {
           style={[styles.container]}
           onPress={async () => {
             if (nameTransparent === "ListItem") {
+              item.thumbnail_img_url = image;
               await this.props.onClickAdd(item);
               await this.props.onPostLogEvent();
               await this.props.navigation.navigate("Item", {
-                adlist_id: adlist_id
+                adlist_id: adlist_id,
+                image: image
               });
             } else {
-              await this.props.getAdItemToBeCompare(adlist_id);
-              await this.props.navigation.navigate("DetailCompare");
+              await this.props.getAdItemToBeCompare(adlist_id,thumbnail_img_url);
+              await this.props.navigation.navigate("DetailCompare",{
+                image: image
+              });
             }
           }}
           activeOpacity={0.9}
         >
           <View style={styles.wrapperImage}>
             <ImageBackground
-              source={{ uri: this._getImage() }}
+              // source={{ uri: this._getImage() }}
+              source={thumbnail_img_url ==null ? {uri:image} : {uri : thumbnail_img_url}}
               style={styles.image}
               resizeMode="cover"
               imageStyle={{ borderRadius: 9 }}
@@ -74,7 +92,7 @@ class ItemProduct extends Component {
           <View style={styles.infoAdd}>
             <View style={{ flexDirection: "row" }}>
               <Text style={styles.textTitle}>{subject}</Text>
-              <Octicons name="verified" size={17} color={"#03AE54"} />
+              <Octicons name="verified" size={15} color={"#03AE54"} style={{paddingTop: 3,}} />
             </View>
             <Text style={styles.textPrice}>{price_str} </Text>
             <View style={styles.infoExtraWrapper}>
@@ -111,9 +129,9 @@ const styles = StyleSheet.create({
   wrapperImage: {
     flex: 0.33,
     height: 90,
-    backgroundColor: "#c4c4c4",
     marginRight: 7,
-    borderRadius: 5
+    backgroundColor:"#c4c4c4",
+    borderRadius:9
   },
   image: {
     width:'100%',
@@ -125,11 +143,12 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "space-around",
     alignItems: "flex-start",
-    paddingVertical: 5
+    paddingVertical: 5,
   },
   textTitle: {
     fontSize: 14,
-    width: 210,
+    flex:0.98,
+    // width: 205,
     fontWeight: "bold"
     // fontWeight: "400"
   },

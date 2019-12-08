@@ -1,7 +1,6 @@
 export default  laptopImage = [
     {
         "id":1,
-
         "images": [
             "https://cdn.chotot.com/DMlqHcqKkeaoDuRJIxIvYNzIzIY1v2hiYyqql3IxWOg/preset:view/plain/71d635f6a50c844c3f2da99e2cba5697-2636388705823562499.jpg",
             "https://cdn.chotot.com/dhZEAfrGmPetvO0_EX2aAg4iCkQU_rxchtI-ucbbLwQ/preset:view/plain/31d5ced09c3449573ebbb5ab429e2bdf-2636388706410830595.jpg",
@@ -58,16 +57,7 @@ export default  laptopImage = [
         ],
         "thumbnail_image": "https://cdn.chotot.com/1vWRfVeFSVtNa51tWB0GJ-Vx76uZ8HbYuJ7MgySEES4/preset:listing/plain/1b68c0cf89fa75c2832deeee342321c0-2638105023626418947.jpg"
     },
-    {
-        "id":6,
-        "images": [
-            "https://cdn.chotot.com/HTGvXmlbbW6Wy9wssEPOFD9G2sOkh-5MNTBKEHUz5ds/preset:view/plain/2266037fd7e521f18082f8e372075034-2638065885162642179.jpg",
-            "https://cdn.chotot.com/rn7pX8hiH0qYrKWx19sx-bWtdW45A_0bNNo57CiPHek/preset:view/plain/16fa2ea9ef5ae011da9d648b8a736bcf-2638065887495133955.jpg",
-            "https://cdn.chotot.com/Eo_HRaabd4sp44Itvpb-8VZuFGDivHHtuuI1YocIFSM/preset:view/plain/30ef77e811f1ee8c013c46fc32189424-2638065889139694339.jpg",
-            "https://cdn.chotot.com/i62wmydyEBxuW0xBzit60Lixy05MwdL0qsm8cLoTTuw/preset:view/plain/51540fb3fd6320e5416a625e3878c896-2638065885343908622.jpg"
-        ],
-        "thumbnail_image": "https://cdn.chotot.com/yeqXt6KYW_AxYyJRVTwy2r3vh84GDaPt6ruPsUw88Ns/preset:listing/plain/2266037fd7e521f18082f8e372075034-2638065885162642179.jpg"
-    },
+   
     {
         "id":7,
         "images": [
@@ -222,5 +212,72 @@ export default  laptopImage = [
             "https://cdn.chotot.com/p5by8UdJGQNUAVYwrs2rt2JfZ3Kh1RNgmnlYbuWMzBY/preset:view/plain/561358a6e0e6d8d199bc5d9cf6d4e61c-2635006140611959171.jpg"
         ],
         "thumbnail_image": "https://cdn.chotot.com/eO0TC7HNXNb0p0YLXDyW1Pv05fWPqSyvk342Mdzoa4Q/preset:listing/plain/4b828b9ae3c59787c4dc2348ac28042d-2635006150428203395.jpg"
+    },
+    {
+        "images": [
+            "https://cdn.chotot.com/IftICChA7lOkO75RKW6WxJqbD39CZZScb8vsahL0DFI/preset:view/plain/0487a8e1f9c105de7eb3955d560683b3-2637537906644818691.jpg",
+            "https://cdn.chotot.com/7t4au-dNHK4p0C-QIn_CetXAIIji8RTX2eZmg7jJw5E/preset:view/plain/32a7fab7ecb86305e8ee92223b1a5bd6-2637537906800198414.jpg",
+            "https://cdn.chotot.com/H7YV6RNas0GiWYXeNqAWgLCqMlNmX4mOf5Q1Ktfojw0/preset:view/plain/108b041b85d6108ed6dbf15cab05e98e-2637537906330305294.jpg",
+            "https://cdn.chotot.com/xyxAeRHBaig3rbD166VovRHvLT-oSv9OZIELcD-diiU/preset:view/plain/0ee9771862c3340ed5be82c2a8cdba95-2637537906582029070.jpg",
+            "https://cdn.chotot.com/jSoIB0R38daCly-rd1xXsLBzm0HEh7j0ALDghXnrywU/preset:view/plain/e7b8d9338f2ddfcd0deaceb0e2144135-2637537906493692675.jpg",
+            "https://cdn.chotot.com/2cNCc3dZRlJfObd7_SDYa1zOXVOV0QM0TWfrVuPxrg0/preset:view/plain/4edd4e43bb912e0cf9a03a31ea005af5-2637537906544089859.jpg"
+        ],
+        "thumbnail_image": "https://cdn.chotot.com/Rzo3xGV7BtQF8fdEE-Zt6yVMOjPE0ueu54ovLRg2eyQ/preset:listing/plain/0487a8e1f9c105de7eb3955d560683b3-2637537906644818691.jpg",
+    },
+    {
+        "images": [
+            "https://cdn.chotot.com/Zh_pw6UgJ_SfiA8SmK4ZY-C0cgA-kz-MfxpcnBE9CjA/preset:view/plain/bb1ce4af1ac338d56ac1c5bed5687e9b-2640834493241436257.jpg",
+            "https://cdn.chotot.com/wlXE2Rx-HFyc22gf65ZkrLcEId5W3KSmFS2hF8TjA6c/preset:view/plain/537d63f92bd191c5219ae0d5e956a745-2640834493139077190.jpg",
+            "https://cdn.chotot.com/q16nwyMaN76QIHzjqDOW487mnb2WKdOpODHFCc1bxDY/preset:view/plain/fa03d1f727c4d09f9a41b8b24b7755de-2640834492385732705.jpg",
+            "https://cdn.chotot.com/BkpKGd4_J08lLkFpmyyQkxq2u4wo66LRuhVFlLgPVrg/preset:view/plain/1f7af39b57e62d52b3dd9181aeb1b0c6-2640834492950803208.jpg",
+            "https://cdn.chotot.com/1l5wbH_DXUMxP7WYJgrM-MBoMj-fKnVQNtQ1S7uZTX4/preset:view/plain/05181b820c832d3b4c33c481aef45b13-2640834492313203464.jpg",
+            "https://cdn.chotot.com/M7mZKoKQSdALXig54TjwpkSiqDGlTXbmyZAXAfbWCpI/preset:view/plain/de506438ca86134d59602f52edda8fa7-2640834492384036934.jpg"
+        ],
+        "thumbnail_image": "https://cdn.chotot.com/cwVHrbZ6wq3Z6mEgtSi9ZPXaTUq9A3X7_JYEZyn7snc/preset:listing/plain/bb1ce4af1ac338d56ac1c5bed5687e9b-2640834493241436257.jpg"
+    },
+    {
+        "images": [
+            "https://cdn.chotot.com/eC54OcpFFxoPzIbeTDSQJDngX_-4FGGYbbK3iVSb4wo/preset:view/plain/d928430a45cae592e88e8694256d7180-2643732010574465617.jpg",
+            "https://cdn.chotot.com/lNP-YXfXZ27OwdZUJIUL-4YYtFKQw2QNNorS9pSCo5k/preset:view/plain/e8ac9cd821770b5f8d4b79d51f7534ab-2643732010640749560.jpg",
+            "https://cdn.chotot.com/TBAHNx87Pi1OnQXQC2uGvW8dBKAfUqXEl81keUgv8OU/preset:view/plain/ec1cd2bfd5c24ff20fc15f35b9841d38-2643732013091244625.jpg"
+        ],
+        "thumbnail_image": "https://cdn.chotot.com/MkEHP8T_eBm0GZ0KmB7eRWWDU9bm3VrtAZjaf7rr-VA/preset:listing/plain/d928430a45cae592e88e8694256d7180-2643732010574465617.jpg"
+    },
+    {
+        "images": [
+            "https://cdn.chotot.com/yFkaLNyNxA_TAjg0gSpu7_YpcwoN_lP2psGtbGmwdew/preset:view/plain/1e94800fc801e6aa51237c9bc82e988a-2643730820887174817.jpg",
+            "https://cdn.chotot.com/rsTFYIIeN-XC6wyURUYcdj3DLTydM9QXXB2F4kIslKQ/preset:view/plain/a7b660ccb76a7bb710d5c4e6f22f614e-2643730827866693281.jpg",
+            "https://cdn.chotot.com/lrRiPLEnaEaib54kI1Z131q4cElNz-C_jOBn6Gkv3bo/preset:view/plain/4b8d1f5644cf3f8a2da2fc47881e12e6-2643730828102161664.jpg",
+            "https://cdn.chotot.com/Y2lG6CiDAOJOBIP0H-lQO3oo42zTRokVw-D6TF4BjGg/preset:view/plain/9c16d643722e5d0b84871823fa6b44b9-2643730837553165304.jpg"
+        ],
+        "thumbnail_image": "https://cdn.chotot.com/J_cwU1YJJByJ-5HHpx1tzSW6ghEQBX5YYso7dP5V0cU/preset:listing/plain/1e94800fc801e6aa51237c9bc82e988a-2643730820887174817.jpg"
+    },
+    {
+        "images": [
+            "https://cdn.chotot.com/dtKu62bjwKHOjMjXgNy7kvZVVmArxBfBt2_Z785jzMw/preset:view/plain/e67e0489a60ce3716f7a03185d0265e6-2643731189594150144.jpg",
+            "https://cdn.chotot.com/V81qwWh1GMRNb4s4PK0bWTIQo0luva6OKjBbK7tnM9o/preset:view/plain/08b8f029c6111d5b198b903f49940b67-2643731188186898081.jpg",
+            "https://cdn.chotot.com/AFifVJy_hPYeELul5f-O5kcs5qMwleDNx_Lnt9N-sC0/preset:view/plain/9cabca555ebc10e2cb357055b2ecc3cd-2643731190524425208.jpg"
+        ],
+        "thumbnail_image": "https://cdn.chotot.com/mtyJ7aP7LMyqd8Hkw9uHJmqd_vJMMAx4jPq2ec6fnYI/preset:listing/plain/e67e0489a60ce3716f7a03185d0265e6-2643731189594150144.jpg"
+    },
+    {
+        "images": [
+            "https://cdn.chotot.com/_wkfbwqbGLXIHZVcE_w5r7Hj9jlfuEa2tN1zJ2tzyMs/preset:view/plain/5e3e885ef2be9a9811a0368c39fbdf69-2643418460324002119.jpg",
+            "https://cdn.chotot.com/Ov2UxI0yO0EDJrMFZSp-r-GodSk0V-PEEmYuxPTyC8E/preset:view/plain/f55efe0f67b50ee222025f894d45053e-2643418461534817419.jpg",
+            "https://cdn.chotot.com/9WWS90WMTR4lp00PDbUKfILD9A8uTCQ_YmJ7JDFUnPg/preset:view/plain/9494a6203cf34e0379582c8f425d47b1-2643418461918232079.jpg",
+            "https://cdn.chotot.com/fjXGCY-17CDElqfYndgRPPtICLA4-pmDT1DdpuexhUo/preset:view/plain/eacba2be0fa821592ee53720f1b5e236-2643418463656911095.jpg"
+        ],
+        "thumbnail_image": "https://cdn.chotot.com/Rz8ALDXVqpP1D76bIKsKwQomfQ5mg6fHcwLuy57m9xk/preset:listing/plain/5e3e885ef2be9a9811a0368c39fbdf69-2643418460324002119.jpg"
+    },
+    {
+        "images": [
+            "https://cdn.chotot.com/Z941YUGFl4Eme7wDbOQJKjU-_K2cr8VNYA_bxORJm8M/preset:view/plain/efdc6679e67045ad2a26df60fe5865a7-2634751477607373187.jpg",
+            "https://cdn.chotot.com/e95T_t8jMkI3hU4DvhBwYTf3OPrI52iAJ9yqPUBJkvA/preset:view/plain/1ebd9b0ccd6d4acfc95cef7ca8e101a0-2634751477624281475.jpg",
+            "https://cdn.chotot.com/ka37a-IQATAhprQiFs5LUQopI0MNyFe9gNP3oEcJ1UM/preset:view/plain/c54e22fa8dd76a7daa90c6ba981e24b2-2634751477607438723.jpg",
+            "https://cdn.chotot.com/egQf8Qxo0XvT3sl_eFgyMjWk8XLDy-113l2haUJmtNo/preset:view/plain/c908e84654184bd9c50387068a9916c5-2634751477540198787.jpg",
+            "https://cdn.chotot.com/Qf4vnH4qeyFNYYZkKOUryT6spwPPwZspZJ_z5r7edGw/preset:view/plain/26188025b34fce989b7702e393ead734-2634751477473024387.jpg",
+            "https://cdn.chotot.com/951RDgIdidX0bSkzbIKt-EvyVERlHijyqKfqUu5xiNM/preset:view/plain/9ac20144c1208e055566821273119892-2634751477612877734.jpg"
+        ],
+        "thumbnail_image": "https://cdn.chotot.com/OqoBk_SI43rMbleeeIzvnqJeqnLWWgkrWmwXvaZNiVc/preset:listing/plain/efdc6679e67045ad2a26df60fe5865a7-2634751477607373187.jpg"
     }
 ]

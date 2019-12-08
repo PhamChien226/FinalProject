@@ -14,8 +14,8 @@ export default class AppRoot extends Component {
     await Font.loadAsync({
       'sf-font-pro': require('../assets/fonts/FontsFree-Net-SFProDisplay-Regular.ttf'),
     });
-    this.props.checkLogin();  
-    this.props.checkIsUsed();  
+    await this.props.checkLogin();  
+    await this.props.checkIsUsed();  
   }
   
 

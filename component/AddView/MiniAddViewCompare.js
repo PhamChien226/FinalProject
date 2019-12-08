@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, View, TouchableOpacity, Image,Dimensions } from "react-native";
+import { StyleSheet, View, TouchableOpacity, ImageBackground,Dimensions } from "react-native";
 import {withNavigation} from 'react-navigation';
 import Text from '../../components/CustomText';
 
@@ -17,38 +17,34 @@ export default class MiniAddViewCompare extends Component {
     } = this.props;
 
     return (
-      // <View style={styles.miniAddViewWrapper}>
         <TouchableOpacity
-          // style={styles.miniAddViewWrapper}
           onPress={this.onPress}
           activeOpacity={0.9}
+          
         >
 
         <View style={styles.miniAddViewWrapper}>
-          <Image
+          <ImageBackground
             style={styles.image}
-            source={image}
-            resizeMode="contain"
+            // source={image}
+            source={{uri : image}}
+            resizeMode="stretch"
+            imageStyle={{ borderRadius: 10 }}
             />
           <View style={styles.infoAddviewWapper}>
             <Text style={styles.textTitle}>{subject}</Text>
-            {/* <Text style={styles.textTitle}>Macbook Pro 13</Text> */}
             <Text style={styles.textPrice}>{price_str}</Text>
-            {/* <Text style={styles.textPrice}>27.200.000 đ</Text> */}
           </View>
         </View>
             </TouchableOpacity>
-      // </View>
     );
   }
 }
-// export default withNavigation
 
 const styles = StyleSheet.create({
   miniAddViewWrapper: {
     flex: 1,
     flexDirection: "column",
-    // height: 137,
     width: 150,
     height:145,
     margin: 7,
@@ -65,29 +61,18 @@ const styles = StyleSheet.create({
     shadowRadius: 1.41,
     elevation: 2
   },
-  button: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    width: 150,
-    height: 145,
-    // backgroundColor: "green"
-  },
   image: {
     height: 105 ,
-    width: 140
+    width: 140,
+    // borderRadius:5
   },
   infoAddviewWapper: {
   },
   textTitle: {
     height: 17,
-    // width: 100,
     paddingHorizontal: 5,
     fontSize: 12,
     color: "#1F1F20",
-    alignSelf:'center',
     textAlign:'center'
   },
   textPrice: {

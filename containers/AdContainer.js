@@ -21,10 +21,7 @@ const mapDispatchToProps = dispatch => {
     onClickAdd: item => {
       dispatch(clickAd(item));
     },
-    // onRefresh: (id_main_category, page, id_category, id_area) => {
-    //   dispatch(clickRefresh(id_main_category, page, id_category, id_area));
-    // },
-    getAdItemToBeCompare: async adlist_id => {
+    getAdItemToBeCompare: async (adlist_id,imageOfTobeItem) => {
       try {
         const response = await fetch(
           `https://chotot-recommendersys.appspot.com/infor?adlist_id=${adlist_id}`,
@@ -38,7 +35,7 @@ const mapDispatchToProps = dispatch => {
           }
         );
         const dataJson = await response.json();
-        dispatch(getAdItemToBeCompare(dataJson.infor));
+        await dispatch(getAdItemToBeCompare(dataJson.infor,imageOfTobeItem));
       } catch (error) {}
     },
     onPostLogEvent: () => {

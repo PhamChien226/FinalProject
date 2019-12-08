@@ -2,10 +2,12 @@ import {
   FETCH_LIST_CATEGORY_SUCCESS,
   FETCH_LIST_CATEGORY_FAILED,
   READ_MORE,
-  READ_LESS
+  READ_LESS,
+  CLICK_CATEGRORY
 } from "../actions/actionTypes";
+import dataCategory from '../utils/dataHome'
 let dashBoardState = {
-  listCategory: [],
+  listCategory: dataCategory,
   isReadMore: false
 };
 
@@ -30,6 +32,11 @@ export const dashBoardReducer = (state = dashBoardState, action) => {
       return {
         ...state,
         isReadMore: false
+      };
+      case CLICK_CATEGRORY:
+      return {
+        ...state,
+        listCategory: action.listCategory
       };
     default:
       return state;

@@ -5,9 +5,10 @@ import {
   Dimensions,
   TouchableOpacity,
   Image,
-  ScrollView
+  ScrollView,
+  Text
 } from "react-native";
-import Text from '../components/CustomText';
+// import Text from '../components/CustomText';
 import Modal from "react-native-modalbox";
 
 import { SearchBar } from "react-native-elements";

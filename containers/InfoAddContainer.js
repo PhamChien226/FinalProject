@@ -11,13 +11,13 @@ const mapStateToProps = (state) =>{
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        getItemOwnCompare: (item)=>{
-            dispatch(getAdItemOwnCompare(item))
+        getItemOwnCompare: (item,imageOfOldItem)=>{
+            dispatch(getAdItemOwnCompare(item,imageOfOldItem))
         },
 
-        getAdItemToBeCompare: (item)=>{
-            dispatch(getAdItemToBeCompare(item))
-        }
+        // getAdItemToBeCompare: (item,imageOfToBeItem)=>{
+        //     dispatch(getAdItemToBeCompare(item,imageOfToBeItem))
+        // }
     }
 }
 

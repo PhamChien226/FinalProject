@@ -5,6 +5,7 @@ import {
   GET_LIST_ADS_WITH_NEW_CATEGORY,
   CLICK_FILTER_AREA,
   CLICK_FILTER_CATEGORY,
+  
   SHOW_LOADING,
   HIDE_LOADING,
   GET_LIST_ADS_ON_END_READ,
@@ -18,7 +19,7 @@ let adState = {
   page: 0,
   id_main_category: 5,
   id_area: null,
-  id_category: null
+  id_category: 5010
 };
 
 export const adReducer = (state = adState, action) => {
@@ -51,6 +52,7 @@ export const adReducer = (state = adState, action) => {
       };
 
     case CLICK_FILTER_CATEGORY:
+      console.log("Click Filter Catrgory is called")
       return {
         ...state,
         list_ads: [],

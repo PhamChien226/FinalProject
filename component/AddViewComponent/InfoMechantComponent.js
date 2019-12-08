@@ -29,16 +29,19 @@ export default class InfoMechantComponent extends Component {
               <View style={styles.avatarMerchant}>
                 <Avatar
                   rounded
-                  source={{
-                    uri: avatar
-                  }}
+                  // source={{
+                  //   uri: avatar
+                  // }}
+                  source={require('../../assets/clown-fish.png')}
                   size="medium"
+                  containerStyle={{padding:2}}
                 />
               </View>
               <View style={styles.infoPersonal}>
                 <View style={{ flexDirection: "row", alignItems: "center" }}>
-                  <Text style={styles.nameMerchant}>{account_name}</Text>
-                  <MaterialIcons name="store" size={19} color="#ffab00" />
+                  {/* <Text style={styles.nameMerchant}>{account_name}</Text> */}
+                  <Text style={styles.nameMerchant}>Cá Hộp</Text>
+                  <MaterialIcons name="store" size={16} color="#ffab00" />
                 </View>
                 <Text style={styles.textAddress}>
                   Phường 14, Quận Gò Vấp, Tp.Hồ Chí Minh
@@ -48,7 +51,7 @@ export default class InfoMechantComponent extends Component {
                     name="star"
                     size={12}
                     color="#F7C942"
-                    style={{ paddingTop: 3 }}
+                    style={{ paddingTop: 2 }}
                   />
                   <Text style={{ fontSize: 12, paddingRight: 12 }}>4.2</Text>
                   <View style={styles.distanWrapper}>
@@ -84,10 +87,10 @@ const styles = StyleSheet.create({
     paddingTop:5
   },
   nameMerchant: {
-    fontSize:16,
+    fontSize:14,
     fontWeight: "400",
     // paddingTop: 2,
-    paddingRight:10
+    paddingRight:5
   },
   infoMerchantWrapper:{
     height:50,
@@ -116,14 +119,13 @@ const styles = StyleSheet.create({
     height:4,  
     width:4,
     borderRadius:2,
-    backgroundColor:"#2D2D2D",
+    backgroundColor:"#727C8E",
     alignSelf:'flex-end',
     marginRight:5,
     
   },
   textExtra:{
     fontSize:12,
-    paddingTop:2
-    // textAlign:''
+    paddingTop:4
   }
 });

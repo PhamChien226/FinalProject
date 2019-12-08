@@ -5,23 +5,23 @@ import Text from '../../components/CustomText';
 
 class MiniAddView extends Component {
   onPress = async () => {
-    const {item:{title,adlist_id},item} = this.props;
+    const {item:{title,adlist_id,thumbnail_img_url},item} = this.props;
+    // await this.props.onClickAdd(item);
     await this.props.onClickAdEvent(item);
     await this.props.navigation.navigate("Item", {
-      adlist_id: adlist_id
+      adlist_id: adlist_id,
+      image: thumbnail_img_url
     });
     
   };
   render() {
     const {
-      item: { price_str, subject, image },
+      item: { price_str, subject, thumbnail_img_url },
       item
     } = this.props;
 
     return (
-      // <View style={styles.miniAddViewWrapper}>
         <TouchableOpacity
-          // style={styles.miniAddViewWrapper}
           onPress={this.onPress}
           activeOpacity={0.9}
         >
@@ -29,15 +29,13 @@ class MiniAddView extends Component {
         <View style={styles.miniAddViewWrapper}>
           <Image
             style={styles.image}
-            // source={require("../../assets/laptop1.jpg")}
-            source={require("../../assets/transparent_logo.png")}
-            resizeMode="contain"
+            // source={require("../../assets/transparent_logo.png")}
+            source={{uri : thumbnail_img_url}}
+            resizeMode="stretch"
             />
           <View style={styles.infoAddviewWapper}>
             <Text style={styles.textTitle}>{subject}</Text>
-            {/* <Text style={styles.textTitle}>Macbook Pro 13</Text> */}
             <Text style={styles.textPrice}>{price_str}</Text>
-            {/* <Text style={styles.textPrice}>27.200.000 đ</Text> */}
           </View>
         </View>
             </TouchableOpacity>
@@ -83,19 +81,22 @@ const styles = StyleSheet.create({
     backgroundColor:'#c4c4c4'
   },
   infoAddviewWapper: {
-    paddingTop: 20
+    paddingTop: 20,
+    justifyContent:'center',
+    alignItems:"center"
   },
   textTitle: {
     height: 17,
     width: 100,
     paddingHorizontal: 5,
     fontSize: 12,
-    color: "#1F1F20"
+    color: "#1F1F20",
+    textAlign:"center"
   },
   textPrice: {
     paddingHorizontal: 5,
-    fontSize: 13,
-    color: "#1F1F20",
-    fontWeight:"200"
+    fontSize: 10,
+    color: "brown",
+    fontWeight:"bold"
   }
 });

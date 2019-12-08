@@ -3,18 +3,18 @@ import { showLoading, hideLoading } from "../../actions/index";
 import listAds from '../../utils/listAds'
 
 export function* getListAdsFromApi() {
-  // const { page, id_main_category, id_category, id_area } = yield select(
-  //   state => state.adState
-  // );
-  // yield put(showLoading());
-  // const response = yield fetch(
-  //   `https://chotot-recommendersys.appspot.com/adlisting?main_category=${id_main_category}&category=${id_category}&min_price=null&page=${page}&region=13000&area=${id_area}`
-  // );
-  // const list_ads = yield response.json();
-  // delay(1000);
-  // yield put(hideLoading());
-  // return list_ads.list_ad_infor; 
-  return listAds.ads;
+  const { page, id_main_category, id_category, id_area } = yield select(
+    state => state.adState
+  );
+  yield put(showLoading());
+  const response = yield fetch(
+    `https://chotot-recommendersys.appspot.com/adlisting?main_category=${id_main_category}&category=${id_category}&min_price=null&page=${page}&region=13000&area=${id_area}`
+  );
+  const list_ads = yield response.json();
+  delay(1000);
+  yield put(hideLoading());
+  return list_ads.list_ad_infor; 
+  // return listAds.ads;
 }
 
 

@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { clickReadMore, clickReadLess } from "../actions/appAction";
+import { clickReadMore, clickReadLess,clickCategory } from "../actions/appAction";
 import HomeScreen from "../screens/HomeScreen";
 
 const mapStateToProps = state => {
@@ -16,6 +16,10 @@ const mapDispatchToProps = dispatch => {
 
     onClickReadLess: ()=> {
       dispatch(clickReadLess());
+    },
+
+    onclickCategory: (listCategory)=> {
+      dispatch(clickCategory(listCategory));
     } 
   };
 };

@@ -53,11 +53,12 @@ class ImageComponent extends React.Component {
       <View>
         <Image
           // source={{ uri: image }}
-          source={
-            category_name === "Laptop"
-              ? require("../../assets/laptop3.jpg")
-              : require("../../assets/dienthoai.jpg")
-          }
+          // source={
+          //   category_name === "Laptop"
+          //     ? require("../../assets/laptop3.jpg")
+          //     : require("../../assets/dienthoai.jpg")
+          // }
+          source={{uri: this.props.image}}
           style={{
             width: "100%",
             height: height
@@ -147,8 +148,8 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: "#c4c4c4",
+    backgroundColor: "black",
     borderRadius: 15,
-    opacity: 0.4
+    opacity: 0.3
   }
 });

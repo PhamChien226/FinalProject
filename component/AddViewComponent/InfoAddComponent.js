@@ -27,8 +27,8 @@ class InfoAddComponent extends Component {
     );
 }
     onPress=()=>{
-      const {item} = this.props
-      this.props.getItemOwnCompare(item)
+      const {item,image} = this.props
+      this.props.getItemOwnCompare(item,image)
            this.props.navigation.navigate('Compare')
            
     }
