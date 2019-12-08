@@ -1,11 +1,12 @@
 # Final Project 
 # Improve Experience Personalization with UI/UX, recommender system
 
-#Demo
+# Demo
+
 
  ![Video Walkthrough](https://giphy.com/gifs/dCF05RmexlEtFAJFmx/links)
  
-#Technical use
+# Technical use
 1. React Native
 2. Expo
 3. Redux
