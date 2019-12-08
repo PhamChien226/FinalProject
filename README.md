@@ -23,7 +23,7 @@ Completed user stories:
  
 
 
-GIF created with [GIFMAKER](https://play.google.com/store/apps/details?id=com.media.zatashima.studio).
+GIF created with [GIPHY](https://giphy.com/gifs/dCF05RmexlEtFAJFmx/links).
 
 
 
