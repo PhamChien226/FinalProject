@@ -4,7 +4,7 @@
 # Demo
 
 
- ![Video Walkthrough](https://giphy.com/gifs/dCF05RmexlEtFAJFmx/links)
+ ![Video Walkthrough](https://media.giphy.com/media/dCF05RmexlEtFAJFmx/giphy.gif)
  
 # Technical use
 1. React Native
