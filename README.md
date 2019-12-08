@@ -12,7 +12,7 @@
 3. Redux
 4. Redux-saga
 
-Completed user stories:
+# Completed user stories:
  * [x] User can see a list of categorys.
  * [x] User can see a list of item products.
  * [x] User can see a list of recommander products
