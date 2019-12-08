@@ -1,6 +1,9 @@
 # Final Project 
 # Improve Experience Personalization with UI/UX, recommender system
 
+#Demo
+ ![Video Walkthrough](https://giphy.com/gifs/dCF05RmexlEtFAJFmx/links)
+ 
 #Technical use
 1. React Native
 2. Expo
@@ -15,6 +18,10 @@ Completed user stories:
  * [x] User can compare with two item product which they confused.
  * [x] User can see detail infomation of item product ( price, description, address,...) 
  * [x] When a user want buy a product. They can contact with salesperson by call or send sms
+ 
+
+
+GIF created with [GIFMAKER](https://play.google.com/store/apps/details?id=com.media.zatashima.studio).
 
 
 
